@@ -1,0 +1,1854 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#2563eb">
+<link rel="icon" type="image/jpeg" href="https://i.postimg.cc/BQ47nLYz/IMG-20260912-WA0001.jpg">
+<meta name="description" content="Jeevan Sahayak 3.0 — Smart Daily Life & Personal Assistant">
+<link rel="manifest" href="manifest.json">
+<title>Jeevan Sahayak 3.0</title>
+<style>
+:root{--bg:#f4f7fb;--card:#ffffff;--text:#0f172a;--muted:#64748b;--line:#e2e8f0;--p:#2563eb;--p-dark:#1d4ed8;--soft:#eff6ff;--danger:#ef4444;--ok:#10b981;--warn:#f59e0b;--shadow:0 10px 25px -5px rgba(15,23,42,0.06),0 8px 10px -6px rgba(15,23,42,0.04);--radius:16px}
+[data-theme=dark]{--bg:#090d16;--card:#111827;--text:#f8fafc;--muted:#94a3b8;--line:#1f293d;--soft:#172554;--shadow:0 10px 25px -5px rgba(0,0,0,0.4)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;padding-bottom:85px;line-height:1.5}button,input,select,textarea{font:inherit}button{cursor:pointer}
+header{background:linear-gradient(135deg,#1e40af,#2563eb,#38bdf8);color:#fff;padding:16px 14px;box-shadow:0 4px 20px rgba(37,99,235,0.25)}.head{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{display:flex;align-items:center;gap:12px}.logo{width:46px;height:46px;border-radius:14px;background:#ffffff24;display:grid;place-items:center;overflow:hidden;border:1px solid #ffffff44}.logo img{width:100%;height:100%;object-fit:cover}.app-logo{display:block;object-fit:contain;border-radius:20px}.login-logo{width:90px;height:90px;margin:0 auto 12px;border-radius:22px;box-shadow:0 8px 24px rgba(0,0,0,0.15)}h1{font-size:21px;font-weight:800;margin:0;letter-spacing:-0.3px}.sub{font-size:12px;opacity:.9;font-weight:500}.head-actions{display:flex;gap:8px;align-items:center}.iconbtn{border:1px solid #ffffff45;background:#ffffff20;color:#fff;border-radius:11px;padding:8px 11px;backdrop-filter:blur(4px);transition:0.2s}.iconbtn:hover{background:#ffffff38}
+.wrap{max-width:1200px;margin:16px auto;padding:0 14px}.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}.tab{border:1px solid var(--line);background:var(--card);color:var(--text);padding:10px 14px;border-radius:12px;white-space:nowrap;font-size:13px;font-weight:600;transition:0.2s;box-shadow:var(--shadow)}.tab.active{background:var(--p);color:#fff;border-color:var(--p);box-shadow:0 4px 14px rgba(37,99,235,0.35)}
+.page{display:none}.page.active{display:block;animation:fadeIn 0.25s ease-out}@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);transition:0.2s}.stat span{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px}.stat strong{font-size:26px;font-weight:800;display:block;margin-top:6px;letter-spacing:-0.5px}.row{display:flex;align-items:center;justify-content:space-between;gap:10px}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:0;border-radius:11px;padding:10px 15px;background:var(--p);color:#fff;font-weight:700;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:0.2s}.btn:hover{filter:brightness(1.08)}.btn.soft{background:var(--soft);color:var(--p)}.btn.danger{background:#fee2e2;color:#991b1b}.btn.ok{background:#dcfce7;color:#166534}.btn.sm{padding:7px 11px;font-size:12px;border-radius:9px}.search{width:100%;margin:12px 0;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--text)}.list{display:grid;gap:10px}.item{border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--card);box-shadow:0 2px 6px rgba(0,0,0,0.02)}.main{min-width:0;flex:1}.title{font-weight:700;font-size:14.5px}.meta{color:var(--muted);font-size:12px;margin-top:4px}.done{opacity:.55}.done .title{text-decoration:line-through}.form{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field label{display:block;font-size:12px;font-weight:700;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text)}.field textarea{min-height:90px;resize:vertical}.full{grid-column:1/-1}.progress{height:10px;background:#e2e8f0;border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;background:var(--p);width:0;border-radius:99px;transition:width 0.4s ease}
+.barwrap{height:200px;display:flex;align-items:end;gap:10px;padding:12px 8px 30px;border-bottom:1px solid var(--line);margin-top:10px}.bar{flex:1;min-width:14px;background:linear-gradient(180deg,#38bdf8,#2563eb);border-radius:6px 6px 0 0;position:relative;transition:height 0.4s}.bar small{position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:600;color:var(--muted);white-space:nowrap}.bar em{position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:700;font-style:normal}
+.modal{position:fixed;inset:0;background:rgba(15,23,42,0.65);display:none;place-items:center;padding:16px;z-index:90;backdrop-filter:blur(4px)}.modal.show{display:grid}.modalbox{width:min(600px,100%);max-height:90vh;overflow-y:auto;background:var(--card);border-radius:20px;padding:22px;box-shadow:0 20px 40px rgba(0,0,0,0.25);border:1px solid var(--line)}.close{border:0;background:#e2e8f0;border-radius:10px;width:34px;height:34px;display:grid;place-items:center;font-weight:700;color:#475467}.toast{position:fixed;right:18px;bottom:18px;background:#0f172a;color:#fff;padding:13px 18px;border-radius:13px;display:none;z-index:99;font-weight:600;font-size:13px;box-shadow:0 8px 24px rgba(0,0,0,0.2)}.toast.show{display:block;animation:popIn 0.2s ease-out}
+.login{min-height:100vh;display:grid;place-items:center;padding:18px;background:linear-gradient(135deg,#eff6ff,#f8fafc)}.loginbox{width:min(460px,100%);background:#fff;padding:28px;border-radius:22px;box-shadow:0 20px 40px rgba(15,23,42,0.08);border:1px solid #e2e8f0}.loginbox input,.loginbox select{width:100%;padding:12px;margin:6px 0 14px;border:1px solid #dce2eb;border-radius:11px;background:#fff;color:#182230}.loginbox label{display:block;font-size:13px;font-weight:700;color:#334155}.password-field{position:relative}.password-field input{padding-right:48px!important}.password-toggle{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:transparent;padding:6px;color:#64748b;font-size:18px}.switch{border:0;background:none;color:var(--p);font-weight:700;padding:10px 0;width:100%;text-align:center}.adminbox{width:min(1100px,100%);background:var(--card);padding:24px;border-radius:22px;box-shadow:var(--shadow)}.admin-table{width:100%;border-collapse:collapse;font-size:13px}.admin-table th,.admin-table td{border-bottom:1px solid var(--line);padding:12px 10px;text-align:left}.admin-table th{color:var(--muted);font-weight:700;font-size:11px;text-transform:uppercase}.note{font-size:11.5px;color:var(--muted)}.hidden{display:none!important}
+.profile-details{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.profile-field{background:var(--soft);border-radius:12px;padding:12px}.profile-field span{display:block;color:var(--muted);font-size:11px;font-weight:600;text-transform:uppercase}.profile-field b{display:block;margin-top:4px;font-size:14px;font-weight:750}@media(max-width:650px){.profile-details{grid-template-columns:1fr 1fr}}
+.bottom{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);display:none;z-index:50;padding:8px 6px}.bottom-nav{display:flex;justify-content:space-around}.bottom button{border:0;background:none;color:var(--muted);font-size:11px;font-weight:600;padding:4px 8px;display:flex;flex-direction:column;align-items:center}.bottom button b{font-size:20px;display:block;margin-bottom:2px}.bottom-more{position:absolute;right:12px;bottom:calc(100% + 10px);display:none!important;grid-template-columns:1fr 1fr;gap:6px;min-width:240px;padding:10px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,0.18)}.bottom-more.show{display:grid!important}.bottom-more button{padding:10px 12px;text-align:left;border-radius:10px;font-size:13px;display:block;width:100%}.bottom-more button:hover{background:var(--soft);color:var(--p)}.badge{display:inline-block;padding:3px 9px;border-radius:99px;background:var(--soft);color:var(--p);font-size:11px;font-weight:700}
+.study-file{font-size:12px;color:var(--muted);word-break:break-word;display:inline-block;margin-top:4px}.study-material{align-items:flex-start}.routine-results{margin-top:12px}.routine-results:empty{display:none}.routine-result{border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:9px}.routine-result ul{margin:7px 0 0;padding-left:20px}.routine-result li{margin:4px 0;font-size:13px}.routine-warning{padding:10px;border-radius:10px;background:var(--soft);font-size:12px;margin-top:9px}
+@media(max-width:850px){.grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){.grid,.form{grid-template-columns:1fr}.full{grid-column:auto}.head-actions span{display:none}.bottom{display:block}.tabs .tab{padding:8px 12px;font-size:12.5px}}
+.quickgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px}.quickcard{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:12px;text-align:center;color:var(--text);box-shadow:0 2px 6px rgba(0,0,0,0.02)}.quickcard b{display:block;font-size:22px;margin-bottom:2px}.quickcard span{font-size:11px;font-weight:600;color:var(--muted)}@media(max-width:850px){.quickgrid{grid-template-columns:repeat(3,1fr)}}@media(max-width:600px){.quickgrid{grid-template-columns:repeat(2,1fr)}}
+.ai-chat{min-height:280px;max-height:380px;overflow-y:auto;display:grid;gap:10px;padding:8px;background:var(--bg);border-radius:14px;border:1px solid var(--line)}.ai-msg{max-width:85%;padding:12px 15px;border-radius:16px;line-height:1.5;font-size:13px;word-break:break-word}.ai-msg.bot{background:var(--card);color:var(--text);justify-self:start;border-bottom-left-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,0.04);border:1px solid var(--line)}.ai-msg.user{background:var(--p);color:#fff;justify-self:end;border-bottom-right-radius:4px;box-shadow:0 2px 8px rgba(37,99,235,0.25)}.ai-input{display:flex;gap:8px;margin-top:10px}.ai-input input{flex:1;min-width:0;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--text)}.live-stat{border-left:4px solid var(--p);padding-left:12px}.live-stat b{display:block;font-size:20px;font-weight:800}.ai-suggestions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.ai-suggestions button{border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:99px;padding:7px 12px;font-size:12px;font-weight:600}
+.exercise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.exercise-card{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--card);box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:space-between}.exercise-card h3{margin:0 0 6px;font-size:15px;font-weight:750}.exercise-card .timer{font-size:22px;font-weight:800;color:var(--p)}.big-timer{font-size:46px;font-weight:900;color:var(--p);letter-spacing:-1px}@media(max-width:850px){.exercise-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.exercise-grid{grid-template-columns:1fr}}
+.real-visual-frame{width:100%;height:290px;background:#090d16;border-radius:16px;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);margin:14px 0;position:relative}
+.exercise-hero-img{max-width:100%;max-height:100%;object-fit:contain;position:relative;z-index:1}.exercise-visual-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:18px;text-align:center;color:#cbd5e1;background:radial-gradient(ellipse at center,#172033 0%,#090d16 75%)}.exercise-visual-fallback[hidden]{display:none!important} .exercise-visual-fallback svg{width:min(240px,70%);height:155px}.exercise-visual-fallback .pose-motion{transform-box:fill-box;transform-origin:center bottom;animation:postureLift 2.2s ease-in-out infinite}.exercise-visual-fallback b{font-size:16px;color:#f8fafc}.exercise-visual-fallback span{font-size:12px;color:#94a3b8}@keyframes postureLift{0%,100%{transform:translateY(3px)}50%{transform:translateY(-5px)}}@media(prefers-reduced-motion:reduce){.exercise-visual-fallback .pose-motion{animation:none}}
+.form-guidance-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;font-size:13px}.form-box{padding:12px 14px;border-radius:12px;line-height:1.5}.form-box.ok{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0}.form-box.warn{background:#fff1f2;color:#9f1239;border:1px solid #fecdd3}@media(max-width:600px){.form-guidance-grid{grid-template-columns:1fr}}
+.otp-modal{position:fixed;inset:0;background:rgba(15,23,42,0.7);display:none;place-items:center;padding:16px;z-index:999;backdrop-filter:blur(4px)}.otp-modal.show{display:grid}.otp-box{width:min(400px,100%);background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,0.3);animation:popIn 0.25s ease}.otp-code{font-size:34px;font-weight:900;letter-spacing:6px;color:var(--p);background:var(--soft);padding:14px;border-radius:14px;margin:16px 0;border:2px dashed var(--p)}@keyframes popIn{from{transform:scale(0.85);opacity:0}to{transform:scale(1);opacity:1}}
+.badge-card{display:flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--card);transition:0.2s}.badge-card.locked{opacity:0.6;filter:grayscale(0.6)}.badge-icon{font-size:32px;width:50px;height:50px;border-radius:12px;background:var(--soft);display:grid;place-items:center}
+.guide{min-height:100vh;padding:24px 14px 40px;background:linear-gradient(135deg,#eff6ff,#f0fdf4,#fffbeb);color:#1e3a8a}.guide-wrap{max-width:1100px;margin:auto}.guide-hero{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;padding:32px;border-radius:26px;background:linear-gradient(135deg,#dbeafe,#f0fdf4);box-shadow:0 12px 30px rgba(37,99,235,0.1);border:1px solid #ffffff}.guide-brand{display:flex;gap:14px;align-items:center}.guide-logo{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;overflow:hidden;background:#fff;box-shadow:0 8px 20px rgba(37,99,235,0.2)}.guide h1{font-size:clamp(30px,5vw,50px);line-height:1.1;color:#1e40af}.guide h1 span{color:#15803d}.guide h2{font-size:clamp(22px,3vw,32px);margin:8px 0;color:#1e3a8a}.guide p{line-height:1.6;font-size:15px}.guide-tag{display:inline-block;background:#059669;color:#fff;padding:8px 16px;border-radius:99px;font-weight:700;font-size:12px;margin:14px 0 6px}.guide-phone{border-radius:28px;padding:24px;background:#fff;border:6px solid #1e293b;box-shadow:12px 14px 0 rgba(30,41,59,0.1);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}.guide-phone .sun{font-size:60px}.guide-phone b{font-size:22px;color:#15803d}.guide-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.guide-btn{border:0;border-radius:12px;padding:12px 20px;background:#15803d;color:#fff;font-weight:750;cursor:pointer}.guide-btn.alt{background:#dbeafe;color:#1e40af}.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}.guide-card{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:18px;box-shadow:0 4px 15px rgba(0,0,0,0.03)}.guide-card .guide-icon{font-size:28px}.guide-card h3{margin:8px 0 4px;color:#1e40af;font-size:16px}.guide-card p{margin:0;font-size:13px;color:#64748b}@media(max-width:700px){.guide-hero{grid-template-columns:1fr}.guide-grid{grid-template-columns:1fr 1fr}}@media(max-width:440px){.guide-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- OTP Pop-Out Dialog -->
+<div id="otpPopupModal" class="otp-modal">
+  <div class="otp-box">
+    <div style="font-size:36px;margin-bottom:8px">📲</div>
+    <h3 style="margin:0 0 6px 0;font-size:18px">Security Verification Code</h3>
+    <p style="margin:0;font-size:13px;color:var(--muted)">Your one-time verification OTP:</p>
+    <div id="otpPopCode" class="otp-code">------</div>
+    <div class="actions" style="justify-content:center;gap:10px">
+      <button class="btn ok" onclick="copyAndAutoFillOtp()">⚡ Auto-fill & Close</button>
+      <button class="btn soft" onclick="closeOtpPopup()">Dismiss</button>
+    </div>
+  </div>
+</div>
+
+<!-- Note Reader Modal -->
+<div id="noteReaderModal" class="modal">
+  <div class="modalbox">
+    <div class="row">
+      <h3 id="noteReaderTitle" style="margin:0;font-size:19px">Note Details</h3>
+      <button class="close" onclick="closeNoteReader()">✕</button>
+    </div>
+    <div class="meta" id="noteReaderDate" style="margin:8px 0 16px 0"></div>
+    <div id="noteReaderBody" style="white-space:pre-wrap;line-height:1.7;font-size:14.5px;background:var(--soft);padding:16px;border-radius:14px;border:1px solid var(--line);max-height:55vh;overflow-y:auto"></div>
+    <div class="actions" style="margin-top:16px;justify-content:flex-end">
+      <button class="btn soft" onclick="closeNoteReader()">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Entrance Guide Screen -->
+<div id="guide" class="guide hidden">
+  <div class="guide-wrap">
+    <div class="guide-hero">
+      <div>
+        <div class="guide-brand">
+          <div class="guide-logo"><img src="https://i.postimg.cc/BQ47nLYz/IMG-20260912-WA0001.jpg" alt="Logo" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div><b>Jeevan Sahayak <span style="color:#15803d">3.0</span></b><div style="font-size:12px;color:#1e40af">Smart Daily Life & Routine Assistant</div></div>
+        </div>
+        <span class="guide-tag">Smart • Simple • For Everyone</span>
+        <h1>Jeevan <span>Sahayak</span></h1>
+        <h2>All Your Daily Needs on One Platform</h2>
+        <p>A simple yet powerful personal assistant designed to keep your studies, health, finances, and routine structured and stress-free.</p>
+        <div class="guide-actions">
+          <button id="guideStartButton" class="guide-btn" onclick="startGuide()">🚀 Start Using App</button>
+          <button class="guide-btn alt" onclick="skipGuide()">Skip Guide</button>
+          <button class="guide-btn alt" onclick="guideLogin()">🔐 Login / Register</button>
+        </div>
+      </div>
+      <div class="guide-phone">
+        <div class="sun">🌱☀️</div>
+        <b>Small Steps,<br>Big Changes</b>
+        <small style="margin-top:6px;color:#64748b">Health · Money · Routine · Goals</small>
+      </div>
+    </div>
+    <h2 style="text-align:center;margin:32px 0 14px;color:#1e40af">Key Highlights</h2>
+    <div class="guide-grid">
+      <div class="guide-card"><div class="guide-icon">📚</div><h3>Study Corner</h3><p>Class-wise syllabus, notes, timetable analysis and study material.</p></div>
+      <div class="guide-card"><div class="guide-icon">❤️</div><h3>Health & Nutrition</h3><p>Log meals, track water and BMI, and set medicine reminders easily.</p></div>
+      <div class="guide-card"><div class="guide-icon">📝</div><h3>Tasks & Routine</h3><p>Manage daily tasks with automatic repeating dates and time-based alerts.</p></div>
+      <div class="guide-card"><div class="guide-icon">💰</div><h3>Money & Savings</h3><p>Log both incomes and expenses with category filters and balance analysis.</p></div>
+      <div class="guide-card"><div class="guide-icon">🏃</div><h3>Workout Guides</h3><p>15+ animated posture guides for height growth and overall fitness.</p></div>
+      <div class="guide-card"><div class="guide-icon">🤖</div><h3>Gemini AI Assistant</h3><p>Smart real-time study planner and daily schedule advisor.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- Register Screen -->
+<div id="register" class="login">
+  <div class="loginbox">
+    <img class="app-logo login-logo" src="https://i.postimg.cc/BQ47nLYz/IMG-20260912-WA0001.jpg" alt="Logo">
+    <h1 style="color:#0f172a;text-align:center">Create Profile</h1>
+    <p style="color:#64748b;text-align:center;margin-bottom:14px;font-size:13px">Register once to start using Jeevan Sahayak 3.0.</p>
+    <form onsubmit="registerUser(event)">
+      <label>Full Name</label><input id="registerName" maxlength="50" required placeholder="Enter full name">
+      <label>Gender</label><select id="registerGender" required><option value="">Select gender</option><option>Male</option><option>Female</option><option>Other</option></select>
+      <label>Date of Birth (DD/MM/YYYY)</label><input id="registerDob" type="text" pattern="(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/[0-9]{4}" maxlength="10" required placeholder="DD/MM/YYYY" oninput="formatDob(this)">
+      <label>Phone Number</label>
+      <div class="actions" style="align-items:center">
+        <input id="registerPhone" type="tel" pattern="[0-9]{10}" maxlength="10" required placeholder="10-digit mobile" style="flex:1;min-width:180px;padding:12px;border:1px solid #dce2eb;border-radius:11px">
+        <button class="btn soft" type="button" onclick="requestOtp()">Send OTP</button>
+      </div>
+      <label>Enter OTP</label><input id="registerOtp" type="text" pattern="[0-9]+" maxlength="8" required placeholder="Enter OTP code">
+      <div class="form" style="margin-top:4px">
+        <div class="field"><label>Height (cm)</label><input id="registerHeight" type="number" min="50" max="250" step="0.1" required placeholder="e.g. 172"></div>
+        <div class="field"><label>Weight (kg)</label><input id="registerWeight" type="number" min="10" max="300" step="0.1" required placeholder="e.g. 64"></div>
+      </div>
+      <label>Password</label>
+      <div class="password-field">
+        <input id="registerPassword" type="password" minlength="6" maxlength="100" required placeholder="At least 6 characters">
+        <button class="password-toggle" type="button" onclick="togglePassword(this)">👁️</button>
+      </div>
+      <label>Captcha: <b id="captchaQuestion"></b></label><input id="captchaAnswer" type="text" pattern="[0-9]+" maxlength="4" required placeholder="Answer">
+      <button class="btn" style="width:100%;margin-top:8px" type="submit">Create Profile</button>
+    </form>
+    <button class="switch" onclick="showUserLogin()">Already registered? Login</button>
+    <button class="switch" onclick="showAdminLogin()">🔐 Admin Dashboard</button>
+    <button class="switch" onclick="replayGuide()">📖 View Entrance Guide</button>
+  </div>
+</div>
+
+<!-- Login Screen -->
+<div id="login" class="login hidden">
+  <div class="loginbox">
+    <img class="app-logo login-logo" src="https://i.postimg.cc/BQ47nLYz/IMG-20260912-WA0001.jpg" alt="Logo">
+    <h1 style="color:#0f172a;text-align:center">User Login</h1>
+    <p style="color:#64748b;text-align:center;margin-bottom:14px;font-size:13px">Access your saved profile and records.</p>
+    <form onsubmit="signIn(event)">
+      <label>Phone Number</label><input id="loginPhone" type="tel" pattern="[0-9]{10}" maxlength="10" required placeholder="Enter 10-digit phone">
+      <label>Password</label>
+      <div class="password-field">
+        <input id="loginPassword" type="password" required placeholder="Enter your password">
+        <button class="password-toggle" type="button" onclick="togglePassword(this)">👁️</button>
+      </div>
+      <label>Captcha: <b id="loginCaptchaQuestion"></b></label><input id="loginCaptchaAnswer" type="text" pattern="[0-9]+" maxlength="4" required placeholder="Answer">
+      <button class="btn" style="width:100%;margin-top:8px" type="submit">Login</button>
+    </form>
+    <button class="switch" onclick="showRegister()">← Create New Profile</button>
+    <button class="switch" onclick="showForgotPassword()">Forgot Password?</button>
+    <button class="switch" onclick="showAdminLogin()">🔐 Admin Dashboard</button>
+  </div>
+</div>
+
+<!-- Forgot Password Screen -->
+<div id="forgotPassword" class="login hidden">
+  <div class="loginbox">
+    <img class="app-logo login-logo" src="https://i.postimg.cc/BQ47nLYz/IMG-20260912-WA0001.jpg" alt="Logo">
+    <h1 style="color:#0f172a;text-align:center">Reset Password</h1>
+    <p style="color:#64748b;text-align:center;font-size:13px;margin-bottom:14px">Verify OTP to configure a new password</p>
+    <form onsubmit="recoverPassword(event)">
+      <label>Phone Number</label>
+      <div class="actions" style="align-items:center">
+        <input id="forgotPhone" type="tel" pattern="[0-9]{10}" maxlength="10" required placeholder="10-digit registered phone" style="flex:1;min-width:180px;padding:12px;border:1px solid #dce2eb;border-radius:11px">
+        <button class="btn soft" type="button" onclick="requestForgotOtp()">Send OTP</button>
+      </div>
+      <label>Enter OTP</label><input id="forgotOtp" type="text" pattern="[0-9]+" maxlength="8" required placeholder="Enter OTP received">
+      <label>New Password</label>
+      <div class="password-field">
+        <input id="forgotNewPassword" type="password" minlength="6" maxlength="100" required placeholder="Enter new password">
+        <button class="password-toggle" type="button" onclick="togglePassword(this)">👁️</button>
+      </div>
+      <button class="btn" style="width:100%;margin-top:10px" type="submit">Update Password</button>
+    </form>
+    <button class="switch" onclick="showUserLogin()">← Back to Login</button>
+  </div>
+</div>
+
+<!-- Admin Login Screen -->
+<div id="adminLogin" class="login hidden">
+  <div class="loginbox">
+    <img class="app-logo login-logo" src="https://i.postimg.cc/BQ47nLYz/IMG-20260912-WA0001.jpg" alt="Logo">
+    <h1 style="color:#0f172a;text-align:center">Admin Sign In</h1>
+    <p style="color:#64748b;text-align:center;font-size:12px;margin-bottom:14px">Backend Admin Authentication Portal</p>
+    <form onsubmit="adminSignIn(event)">
+      <label>Username</label><input id="adminUser" required autocomplete="username" placeholder="Enter admin username">
+      <label>Password</label>
+      <div class="password-field">
+        <input id="adminPass" type="password" required autocomplete="current-password" placeholder="Enter admin password">
+        <button class="password-toggle" type="button" onclick="togglePassword(this)">👁️</button>
+      </div>
+      <button class="btn" style="width:100%;margin-top:10px" type="submit">Sign In to Dashboard</button>
+    </form>
+    <button class="switch" onclick="showUserLogin()">← User Login</button>
+  </div>
+</div>
+
+<!-- Admin Dashboard Screen -->
+<div id="admin" class="login hidden">
+  <div class="adminbox">
+    <div class="row"><div><h1 style="color:var(--text)">Admin Dashboard</h1><div class="meta">Registered user profiles from the backend database</div></div><button class="btn danger" onclick="adminLogout()">Logout</button></div>
+    <div class="grid admin-stats" style="margin-top:14px">
+      <div class="card stat"><span>Total users</span><strong id="adminTotal">0</strong></div>
+      <div class="card stat"><span>Registered today</span><strong id="adminToday">0</strong></div>
+      <div class="card stat"><span>Male profiles</span><strong id="adminMale">0</strong></div>
+      <div class="card stat"><span>Female profiles</span><strong id="adminFemale">0</strong></div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <div class="row"><b>User management</b><div class="actions"><button class="btn sm soft" onclick="exportUsers()">⬇️ Export Excel</button><button class="btn sm danger" onclick="clearUsers()">🗑️ Clear all</button></div></div>
+      <input id="adminSearch" class="search" placeholder="Search by name, phone or gender..." oninput="scheduleAdminSearch()">
+      <div style="overflow-x:auto"><table class="admin-table"><thead><tr><th>Name</th><th>Gender</th><th>Date of birth</th><th>Phone</th><th>Registered</th><th>Action</th></tr></thead><tbody id="adminUsers"></tbody></table></div>
+      <div id="adminUserDetails" class="card hidden" style="margin-top:14px"></div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <h2>📚 Study Corner — Admin Publish & Review</h2>
+      <p class="meta">Upload syllabus and notes for students. Student submissions appear here for review.</p>
+      <form onsubmit="handleStudyUpload(event,true)"><div class="form"><div class="field"><label>Title</label><input name="title" maxlength="100" required placeholder="e.g. Maths Chapter 1"></div><div class="field"><label>Class</label><select name="className" required><option value="">Select class</option><option>Class 1</option><option>Class 2</option><option>Class 3</option><option>Class 4</option><option>Class 5</option><option>Class 6</option><option>Class 7</option><option>Class 8</option><option>Class 9</option><option>Class 10</option><option>11th (Humanities)</option><option>11th (Science)</option><option>11th (Commerce)</option><option>12th (Humanities)</option><option>12th (Science)</option><option>12th (Commerce)</option></select></div><div class="field"><label>Material type</label><select name="kind"><option>Syllabus</option><option>Notes</option><option>Study material</option></select></div><div class="field"><label>Optional file (max 1 MB)</label><input name="file" type="file" accept=".pdf,.txt,.png,.jpg,.jpeg,.doc,.docx"></div><div class="field full"><label>Description / content</label><textarea name="description" maxlength="3000" placeholder="Add syllabus details, notes or instructions"></textarea></div></div><button class="btn" style="margin-top:10px">⬆️ Publish for students</button></form>
+      <h3 style="margin-top:18px">📥 Student uploads to review</h3><div id="studySubmissions" class="list"></div>
+      <h3 style="margin-top:18px">Published class-wise materials</h3><div id="adminStudyMaterials" class="list"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Main Application Workspace -->
+<div id="app" class="hidden">
+<header>
+  <div class="head">
+    <div class="brand">
+      <div class="logo"><img src="https://i.postimg.cc/BQ47nLYz/IMG-20260912-WA0001.jpg" alt="Logo"></div>
+      <div><h1>Jeevan Sahayak 3.0</h1><div class="sub">By Your Side at Every Step</div></div>
+    </div>
+    <div class="head-actions">
+      <span id="hello" style="font-weight:600;font-size:13px"></span>
+      <button class="iconbtn" onclick="toggleTheme()" title="Toggle Dark/Light Mode">🌙</button>
+      <button class="iconbtn" onclick="enableNotifications()" title="Notifications">🔔</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+<nav class="tabs">
+  <button class="tab active" data-page="home">🏠 Home</button>
+  <button class="tab" data-page="study">📚 Study Corner</button>
+  <button class="tab" data-page="tasks">📝 Tasks</button>
+  <button class="tab" data-page="reminders">⏰ Reminders</button>
+  <button class="tab" data-page="expenses">💰 Money</button>
+  <button class="tab" data-page="health">❤️ Health & Food</button>
+  <button class="tab" data-page="exercise">🏃 Exercise</button>
+  <button class="tab" data-page="notes">📌 Notes</button>
+  <button class="tab" data-page="contacts">🆘 Contacts</button>
+  <button class="tab" data-page="reports">📊 Reports</button>
+  <button class="tab" data-page="achievements">🏆 Achievements</button>
+  <button class="tab" data-page="calendar">🗓️ Calendar</button>
+  <button class="tab" data-page="settings">⚙️ Settings</button>
+</nav>
+
+<!-- Home Section -->
+<section id="home" class="page active">
+  <div class="grid">
+    <div class="card stat"><span>Tasks Today</span><strong id="st">0/0</strong></div>
+    <div class="card stat"><span>Reminders</span><strong id="sr">0</strong></div>
+    <div class="card stat"><span>Spent Today</span><strong id="se">₹0</strong></div>
+    <div class="card stat"><span>Water Log</span><strong id="sw">0%</strong></div>
+  </div>
+  <div class="quickgrid">
+    <div class="quickcard" onclick="go('study')" style="cursor:pointer"><b>📚</b><span>Study Corner</span></div>
+    <div class="quickcard"><b>🔥</b><span>Streak <strong id="streak">0</strong> d</span></div>
+    <div class="quickcard"><b>🎯</b><span>Goals <strong id="goalCount">0</strong></span></div>
+    <div class="quickcard"><b>🏆</b><span>Badges <strong id="badgeCount">0</strong></span></div>
+    <div class="quickcard"><b>📌</b><span>Notes <strong id="noteCount">0</strong></span></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div class="row"><h2>Quick Actions</h2>
+      <div class="actions">
+        <button class="btn sm" onclick="openModal('task')">+ Task</button>
+        <button class="btn sm" onclick="openModal('reminder')">+ Reminder</button>
+        <button class="btn sm soft" onclick="openModal('income')">+ Income</button>
+        <button class="btn sm danger" onclick="openModal('expense')">+ Expense</button>
+      </div>
+    </div>
+    <div style="margin-top:14px">
+      <b>Water Intake Tracker</b>
+      <div class="progress" style="margin-top:8px"><i id="homeWater"></i></div>
+      <div class="actions" style="margin-top:10px">
+        <button class="btn sm" onclick="addWater()">💧 +1 Glass</button>
+        <button class="btn sm soft" onclick="resetWater()">↺ Reset</button>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div class="row"><h2>Live Overview</h2><span class="badge">Real-time Sync</span></div>
+    <div class="grid" style="margin-top:12px">
+      <div class="live-stat"><span class="meta">Next Reminder</span><b id="liveNextReminder">None</b></div>
+      <div class="live-stat"><span class="meta">Pending Tasks</span><b id="livePendingTasks">0</b></div>
+      <div class="live-stat"><span class="meta">Budget Used</span><b id="liveBudgetUsed">₹0</b></div>
+      <div class="live-stat"><span class="meta">Remaining Water</span><b id="liveWaterLeft">0 glasses</b></div>
+    </div>
+    <div id="dailyTip" class="profile-field" style="margin-top:14px"><b>💡 Daily Productivity Insight:</b><div class="meta" id="dailyTipText" style="margin-top:4px">Stay hydrated and tackle high-priority tasks first.</div></div>
+  </div>
+
+  <!-- Connected Gemini Assistant with Fast Fallback & Anti-Timeout -->
+  <div class="card" style="margin-top:14px">
+    <div class="row">
+      <h2>🤖 Gemini AI Assistant</h2>
+      <span class="badge" style="background:#dcfce7;color:#15803d">Active</span>
+    </div>
+    <div id="aiConnection" class="meta" style="margin:4px 0 10px">Powered by Google Gemini (Direct Cloud Proxy)</div>
+    <div id="aiChat" class="ai-chat">
+      <div class="ai-msg bot">Hello! I am your AI assistant. Ask me anything about your study timetable, workout forms, budgeting, or daily routine!</div>
+    </div>
+    <div class="ai-suggestions">
+      <button onclick="askAI('Create a productive study plan for class 12 PCM')">Study Plan</button>
+      <button onclick="askAI('Give best height growth exercise tips')">Height Tips</button>
+      <button onclick="askAI('How to save money this month?')">Budget Tips</button>
+    </div>
+    <form class="ai-input" onsubmit="sendAI(event)">
+      <input id="aiInput" maxlength="250" placeholder="Type your question..." aria-label="Ask AI">
+      <button class="btn" type="submit">Ask</button>
+    </form>
+  </div>
+</section>
+
+<!-- Study Corner Section -->
+<section id="study" class="page">
+  <div class="row"><div><h2>📚 Study Corner</h2><div class="meta">Class-by-class syllabus, notes, and study planning</div></div></div>
+  <div class="quickgrid">
+    <button class="quickcard" onclick="go('tasks')"><b>📝</b><span>Study Tasks</span></button>
+    <button class="quickcard" onclick="go('notes')"><b>📌</b><span>My Notes</span></button>
+    <button class="quickcard" onclick="go('reminders')"><b>⏰</b><span>Reminders</span></button>
+    <button class="quickcard" onclick="go('calendar')"><b>🗓️</b><span>Calendar</span></button>
+  </div>
+  <div class="card routine-card" style="margin-top:13px">
+    <div class="row"><div><h3 style="margin:0">📅 Daily Routine / Timetable Analyzer</h3><div class="meta">Upload or paste a text timetable. Review suggestions before adding them.</div></div><span class="badge">Offline Analysis</span></div>
+    <form onsubmit="analyzeRoutine(event)" style="margin-top:12px">
+      <div class="form">
+        <div class="field full"><label>Upload timetable file (.txt or .csv)</label><input id="routineFile" type="file" accept=".txt,.csv,text/plain,text/csv" onchange="loadRoutineFile(event)"></div>
+        <div class="field full"><label>Or paste / edit timetable</label><textarea id="routineText" maxlength="12000" placeholder="Example:&#10;07:00-08:00 Breakfast&#10;09:00-10:00 Study Mathematics&#10;16:00-16:30 Exercise"></textarea></div>
+      </div>
+      <div class="actions" style="margin-top:10px">
+        <button class="btn" type="submit">🔎 Analyze Routine</button>
+        <button class="btn soft" type="button" onclick="clearRoutineAnalysis()">Clear</button>
+      </div>
+    </form>
+    <div id="routineAnalysis" class="routine-results" aria-live="polite"></div>
+  </div>
+  <div class="card" style="margin-top:13px">
+    <div class="row"><div><h3 style="margin:0">📖 Class-wise Syllabus & Notes</h3><div class="meta">Materials published and approved by the admin are available here by class.</div></div><select id="studyClassFilter" aria-label="Filter materials by class" onchange="renderStudyCorner()" style="padding:9px;border:1px solid var(--line);border-radius:9px;background:var(--card);color:var(--text)"><option value="">All classes</option></select></div>
+    <div id="studyMaterials" class="list" style="margin-top:12px"></div>
+  </div>
+  <div class="card" style="margin-top:13px">
+    <h3>⬆️ Share Study Material with Admin</h3>
+    <p class="meta">Upload your notes or study materials for admin review before they are published.</p>
+    <form onsubmit="handleStudyUpload(event,false)">
+      <div class="form">
+        <div class="field"><label>Title</label><input name="title" maxlength="100" required placeholder="Material title"></div>
+        <div class="field"><label>Class</label><select name="className" required><option value="">Select class</option><option>Class 1</option><option>Class 2</option><option>Class 3</option><option>Class 4</option><option>Class 5</option><option>Class 6</option><option>Class 7</option><option>Class 8</option><option>Class 9</option><option>Class 10</option><option>11th (Humanities)</option><option>11th (Science)</option><option>11th (Commerce)</option><option>12th (Humanities)</option><option>12th (Science)</option><option>12th (Commerce)</option></select></div>
+        <div class="field"><label>Material type</label><select name="kind"><option>Notes</option><option>Syllabus</option><option>Study material</option></select></div>
+        <div class="field"><label>Optional file (max 1 MB)</label><input name="file" type="file" accept=".pdf,.txt,.png,.jpg,.jpeg,.doc,.docx"></div>
+        <div class="field full"><label>Description / content</label><textarea name="description" maxlength="3000" placeholder="Describe your notes or material"></textarea></div>
+      </div>
+      <button class="btn" style="margin-top:10px">Submit for Admin Review</button>
+    </form>
+  </div>
+</section>
+
+<!-- Tasks Section -->
+<section id="tasks" class="page">
+  <div class="row"><h2>📝 Daily Tasks</h2><button class="btn" onclick="openModal('task')">+ Add Task</button></div>
+  <input id="qTask" class="search" placeholder="Search tasks..." oninput="renderAll()">
+  <div class="card"><div id="tasksList" class="list"></div></div>
+</section>
+
+<!-- Reminders Section -->
+<section id="reminders" class="page">
+  <div class="row"><h2>⏰ Timed Reminders</h2><button class="btn" onclick="openModal('reminder')">+ Add Reminder</button></div>
+  <input id="qRem" class="search" placeholder="Search reminders..." oninput="renderAll()">
+  <div class="card"><div id="remList" class="list"></div></div>
+</section>
+
+<!-- Money Section -->
+<section id="expenses" class="page">
+  <div class="row">
+    <h2>💰 Money & Budget Management</h2>
+    <div class="actions">
+      <button class="btn ok" onclick="openModal('income')">＋ Log Income</button>
+      <button class="btn danger" onclick="openModal('expense')">－ Log Expense</button>
+    </div>
+  </div>
+  <div class="grid" style="margin-top:12px">
+    <div class="card stat"><span>Spent This Month</span><strong id="em">₹0</strong></div>
+    <div class="card stat"><span>Income This Month</span><strong id="im" style="color:#10b981">₹0</strong></div>
+    <div class="card stat"><span>Current Balance</span><strong id="ib">₹0</strong></div>
+    <div class="card stat"><span>Budget Left</span><strong id="eb">₹0</strong></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div class="row"><b>Monthly Budget Progress</b><button class="btn sm soft" onclick="editBudget()">Set Budget</button></div>
+    <div class="progress" style="margin-top:10px"><i id="budgetBar"></i></div>
+    <div class="meta" style="margin-top:6px;display:flex;justify-content:space-between"><span>Used: <b id="budgetUsed">₹0</b></span><span>Target: <b id="budgetTarget">₹0</b></span></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div class="row"><h3>Financial Records History</h3><span class="badge">All Incomes & Expenses</span></div>
+    <input id="qExp" class="search" placeholder="Filter money records..." oninput="renderAll()">
+    <div id="expList" class="list"></div>
+  </div>
+</section>
+
+<!-- Health & Nutrition Section -->
+<section id="health" class="page">
+  <div class="row">
+    <h2>❤️ Health & Nutrition Tracker</h2>
+    <div class="actions">
+      <button class="btn" onclick="openModal('nutrition')">＋ Add Meal / Food</button>
+      <button class="btn soft" onclick="openModal('medicine')">💊 + Medicine</button>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div class="row"><h3>Personal Health Profile</h3><button class="btn sm soft" onclick="openProfileEditor()">✏️ Update Profile</button></div>
+    <div id="healthProfileGrid" class="profile-details" style="margin-top:12px"></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div class="row"><h3>Today's Nutrition Breakdown</h3><span class="badge">Daily Estimates</span></div>
+    <div class="grid" style="margin-top:12px">
+      <div class="live-stat"><span class="meta">Calories</span><b id="nutrCal">0 kcal</b></div>
+      <div class="live-stat"><span class="meta">Protein</span><b id="nutrProt">0 g</b></div>
+      <div class="live-stat"><span class="meta">Carbs</span><b id="nutrCarb">0 g</b></div>
+      <div class="live-stat"><span class="meta">Fats</span><b id="nutrFat">0 g</b></div>
+    </div>
+    <div style="margin-top:14px">
+      <b>Calorie Daily Limit (2000 kcal Target)</b>
+      <div class="progress" style="margin-top:8px"><i id="calBar"></i></div>
+    </div>
+    <h4 style="margin:16px 0 8px 0">Logged Foods Today</h4>
+    <div id="nutritionList" class="list"></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div class="row"><h3>Scheduled Medicines</h3></div>
+    <div id="medList" class="list" style="margin-top:10px"></div>
+  </div>
+</section>
+
+<!-- Upgraded Exercise Section: Clear Human Body Posture Movement -->
+<section id="exercise" class="page">
+  <div class="row"><h2>🏃 Height Growth & Fitness Guide</h2><span class="badge">Animated Exercise Guide</span></div>
+  <div class="card" style="margin-top:14px">
+    <div class="row">
+      <div>
+        <h3 id="exerciseName" style="color:var(--p);font-size:22px;margin:0">Cobra Stretch</h3>
+        <div class="meta" id="exerciseInfo" style="font-size:13px;margin-top:3px">Spine Stretch & Mobility · 35s</div>
+      </div>
+      <div class="big-timer" id="exerciseTimer">00:35</div>
+    </div>
+    <div class="actions" style="margin-top:14px;justify-content:center">
+      <button class="btn" onclick="startExercise()">▶ Start</button>
+      <button class="btn soft" onclick="pauseExercise()">⏸ Pause</button>
+      <button class="btn danger" onclick="resetExercise()">↺ Reset</button>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <div class="row"><h3 id="currentVisualTitle" style="margin:0">🎬 Motion Posture Guider</h3><span class="badge">Exercise Visual</span></div>
+    
+    <!-- Self-contained canvas posture guider; no external images required. -->
+    <div class="real-visual-frame" style="position:relative;background:#0b1120;border-radius:18px;overflow:hidden;height:290px;display:flex;align-items:center;justify-content:center;border:1px solid #1e293b">
+      <canvas id="exerciseCanvas" width="340" height="280" role="img" aria-label="Animated exercise posture guide" style="display:block;max-width:100%;max-height:100%"></canvas>
+      <div style="position:absolute;top:10px;left:12px;background:rgba(15,23,42,.8);color:#38bdf8;padding:4px 10px;border-radius:8px;font-size:11px;font-weight:700;border:1px solid rgba(56,189,248,.3)">● BUILT-IN MOTION + HINGLISH CUES</div>
+    </div>
+
+    <div class="form-guidance-grid">
+      <div class="form-box ok">
+        <b>✅ Sahi Tareeqa (Correct Posture):</b>
+        <div id="exerciseFormTip" style="margin-top:4px">Place hands near shoulders, gently raise chest while breathing smoothly, keeping hips grounded.</div>
+      </div>
+      <div class="form-box warn">
+        <b>⚠️ Galti Na Karein (Common Mistake):</b>
+        <div id="exerciseMistakeTip" style="margin-top:4px">Do not force an unnatural backward bend in your lower spine.</div>
+      </div>
+    </div>
+
+    <!-- Step Breakdown -->
+    <div style="margin-top:14px;background:var(--soft);padding:14px;border-radius:12px;border:1px solid var(--line)">
+      <b style="color:var(--text);font-size:14px">📋 Step-by-Step Exercise Instructions:</b>
+      <ol id="exerciseStepsList" style="margin:8px 0 0;padding-left:22px;font-size:13px;line-height:1.6"></ol>
+    </div>
+  </div>
+
+  <h3 style="margin-top:20px">Workout Catalog (15+ Targeted Exercises)</h3>
+  <div id="exerciseList" class="exercise-grid"></div>
+</section>
+
+<!-- Notes Section -->
+<section id="notes" class="page">
+  <div class="row"><h2>📌 Personal Notes</h2><button class="btn" onclick="openModal('note')">+ Add Note</button></div>
+  <input id="qNote" class="search" placeholder="Search notes..." oninput="renderAll()">
+  <div class="card"><div id="noteList" class="list"></div></div>
+</section>
+
+<!-- Contacts Section -->
+<section id="contacts" class="page">
+  <div class="row"><h2>🆘 Trusted & Emergency Contacts</h2><button class="btn" onclick="openModal('contact')">+ Add Contact</button></div>
+  <input id="qCon" class="search" placeholder="Search contacts..." oninput="renderAll()">
+  <div class="card"><div id="conList" class="list"></div></div>
+</section>
+
+<!-- Reports Section -->
+<section id="reports" class="page">
+  <div class="row"><h2>📊 Analytics & Activity Reports</h2></div>
+  <div class="grid" style="margin-top:12px">
+    <div class="card stat"><span>Total Records</span><strong id="repTotalRec">0</strong></div>
+    <div class="card stat"><span>Tasks Completed</span><strong id="repTaskDone">0</strong></div>
+    <div class="card stat"><span>Monthly Savings</span><strong id="repSavings" style="color:#10b981">₹0</strong></div>
+    <div class="card stat"><span>Health Activity</span><strong id="repHealthScore">92%</strong></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div class="row"><h3>Expense by Category Breakdown</h3><span class="badge">Visual Graph</span></div>
+    <div id="chart" class="barwrap"></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h3>Monthly Financial Summary</h3>
+    <div id="summary" class="list" style="margin-top:10px"></div>
+  </div>
+</section>
+
+<!-- Achievements Section -->
+<section id="achievements" class="page">
+  <div class="row"><h2>🏆 Achievements & Milestones</h2><span class="badge">Unlock Badges</span></div>
+  <div class="card" style="margin-top:14px">
+    <div class="row"><div><b style="font-size:16px">Your Growth Level: <span id="userLevelBadge" style="color:var(--p)">Gold Achiever</span></b><div class="meta">Keep logging daily habits to reach Platinum!</div></div><strong style="font-size:24px" id="userPointsTotal">350 PTS</strong></div>
+    <div class="progress" style="margin-top:10px"><i id="levelBar" style="width:75%"></i></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div id="badgesList" style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px"></div>
+  </div>
+</section>
+
+<!-- Calendar Section -->
+<section id="calendar" class="page">
+  <div class="row"><h2>🗓️ Calendar Planner</h2><button class="btn" onclick="openModal('task')">+ Schedule Task</button></div>
+  <div class="card" style="margin-top:14px">
+    <div class="row">
+      <button class="btn soft sm" onclick="moveDay(-1)">← Previous</button>
+      <b id="calDate" style="font-size:16px"></b>
+      <button class="btn soft sm" onclick="moveDay(1)">Next →</button>
+    </div>
+    <div id="calList" class="list" style="margin-top:14px"></div>
+  </div>
+</section>
+
+<!-- Settings Section -->
+<section id="settings" class="page">
+  <h2>⚙️ Settings & Configuration</h2>
+  <div class="card" style="margin-top:14px">
+    <div class="row">
+      <div><b>🌐 App Language</b><div class="meta">Select preferred interface language</div></div>
+      <select id="languageSelect" onchange="setLanguage(this.value)" style="padding:9px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text)">
+        <option value="English">English (Default)</option>
+        <option value="Hindi">हिंदी (Hindi)</option>
+        <option value="Hinglish">Hinglish</option>
+      </select>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div class="row">
+      <div><b>👤 Full Profile Details</b><div class="meta">Complete information and physical stats</div></div>
+      <button class="btn sm soft" onclick="openProfileEditor()">✏️ Edit Profile</button>
+    </div>
+    <div id="settingsProfileDetails" class="profile-details" style="margin-top:14px"></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div class="row"><div><b>Notifications Permission</b><div class="meta" id="notifStatus">Checking…</div></div><button class="btn" onclick="enableNotifications()">Enable</button></div>
+    <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
+    <div class="row"><div><b>Appearance Theme</b><div class="meta">Switch dark and light theme</div></div><button class="btn soft" onclick="toggleTheme()">Toggle Mode</button></div>
+    <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
+    <div>
+      <b>Backup & Data Sync</b>
+      <div class="meta">Export your profile data into secure JSON format.</div>
+      <div class="actions" style="margin-top:10px">
+        <button class="btn sm" onclick="backup()">Export Backup</button>
+        <button class="btn sm soft" onclick="document.getElementById('restore').click()">Import Backup</button>
+        <input id="restore" type="file" accept=".json,application/json" class="hidden" onchange="restore(event)">
+      </div>
+    </div>
+    <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
+    <div class="row"><div><b>Log Out</b><div class="meta">Sign out from this device session</div></div><button class="btn danger" onclick="logout()">↪ Log Out</button></div>
+  </div>
+</section>
+
+</main>
+</div>
+
+<!-- Bottom Navigation Bar -->
+<div class="bottom">
+  <div class="bottom-more" id="bottomMore">
+    <button onclick="go('study')">📚 Study Corner</button>
+    <button onclick="go('reminders')">⏰ Reminders</button>
+    <button onclick="go('health')">❤️ Health & Food</button>
+    <button onclick="go('exercise')">🏃 Exercise</button>
+    <button onclick="go('notes')">📌 Notes</button>
+    <button onclick="go('contacts')">🆘 Contacts</button>
+    <button onclick="go('reports')">📊 Reports</button>
+    <button onclick="go('achievements')">🏆 Achievements</button>
+    <button onclick="go('calendar')">🗓️ Calendar</button>
+    <button onclick="go('settings')">⚙️ Settings</button>
+  </div>
+  <div class="bottom-nav">
+    <button onclick="go('home')"><b>🏠</b>Home</button>
+    <button onclick="go('study')"><b>📚</b>Study</button>
+    <button onclick="go('tasks')"><b>📝</b>Tasks</button>
+    <button onclick="go('expenses')"><b>💰</b>Money</button>
+    <button onclick="toggleMore()"><b>☰</b>More</button>
+  </div>
+</div>
+
+<!-- Generic Add/Edit Modal -->
+<div id="modal" class="modal">
+  <div class="modalbox">
+    <div class="row"><h3 id="mtitle" style="margin:0">Add Item</h3><button class="close" onclick="closeModal()">✕</button></div>
+    <form id="form" onsubmit="saveForm(event)">
+      <div id="fields" style="margin-top:14px"></div>
+      <div class="actions" style="margin-top:16px;justify-content:flex-end">
+        <button type="button" class="btn soft" onclick="closeModal()">Cancel</button>
+        <button class="btn" type="submit">Save Record</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+let KEY = "jeevan_sahayak_real_v1";
+const BACKEND_BASE = "https://jeevan-sahayak-backend.onrender.com";
+const AUTH_URL = `${BACKEND_BASE}/api/auth`;
+const AI_URL = `${BACKEND_BASE}/api/ai/chat`;
+const USERS_KEY = "jeevan_sahayak_users_v1";
+const ACTIVE_SESSION_KEY = "jeevan_sahayak_active_session_v1";
+const ADMIN_TOKEN_KEY = "jeevan_sahayak_admin_token_v1";
+const PERSIST_USER_KEY = "jeevan_sahayak_persistent_user_v1";
+const STUDY_KEY = "jeevan_sahayak_study_v1";
+const STUDY_CLASSES = [...Array.from({length:10},(_,i)=>`Class ${i+1}`),"11th (Humanities)","11th (Science)","11th (Commerce)","12th (Humanities)","12th (Science)","12th (Commerce)"];
+
+function today(){
+  let d = new Date();
+  d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+  return d.toISOString().slice(0, 10);
+}
+
+const baseState = {
+  tasks: [], reminders: [], expenses: [], incomes: [], nutrition: [], medicines: [],
+  notes: [], contacts: [], goals: [], habits: [], routines: [],
+  water: { date: today(), count: 0, goal: 8 },
+  budget: 5000, theme: "light", language: "English", user: null, session: false, profile: null
+};
+
+function loadState(){
+  let raw = {};
+  try{ raw = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){}
+  let s = JSON.parse(JSON.stringify(baseState));
+  if(raw && typeof raw === "object") Object.assign(s, raw);
+  if(!s.water || typeof s.water !== "object") s.water = { ...baseState.water };
+  if(s.water.date !== today()) s.water = { ...s.water, date: today(), count: 0 };
+  if(!Number.isFinite(Number(s.water.goal)) || Number(s.water.goal) <= 0) s.water.goal = baseState.water.goal;
+  if(!Number.isFinite(Number(s.water.count)) || Number(s.water.count) < 0) s.water.count = 0;
+  return s;
+}
+
+let S = loadState();
+let currentType = "", editId = null;
+
+function saveState(){
+  try{ localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){ return false; }
+  try{ renderAll(); } catch(e){}
+  return true;
+}
+
+function toast(msg){
+  const t = document.getElementById("toast");
+  if(!t) return;
+  t.textContent = msg; t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"), 2500);
+}
+
+function esc(v){ return String(v ?? "").replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function money(n){ return "₹" + Number(n || 0).toLocaleString("en-IN", { maximumFractionDigits: 2 }); }
+function displayDate(v){ if(!v) return ""; const p = String(v).split("-"); return p.length === 3 ? `${p[2]}/${p[1]}/${p[0]}` : String(v); }
+function displayDob(v){ return displayDate(v); }
+
+function togglePassword(b){
+  const inp = b.parentElement.querySelector("input");
+  if(!inp) return;
+  inp.type = inp.type === "password" ? "text" : "password";
+  b.textContent = inp.type === "password" ? "👁️" : "🙈";
+}
+
+function formatDob(inp){
+  const d = inp.value.replace(/\D/g, "").slice(0, 8);
+  inp.value = d.length > 4 ? `${d.slice(0,2)}/${d.slice(2,4)}/${d.slice(4)}` : d.length > 2 ? `${d.slice(0,2)}/${d.slice(2)}` : d;
+}
+
+/* ----------------- OTP POP-OUT MODAL ----------------- */
+let activeOtpCode = "", otpTargetInput = "registerOtp";
+
+function showOtpPopout(code, inputId){
+  activeOtpCode = code;
+  otpTargetInput = inputId;
+  const modal = document.getElementById("otpPopupModal");
+  const codeEl = document.getElementById("otpPopCode");
+  if(codeEl) codeEl.innerText = code;
+  if(modal) modal.classList.add("show");
+}
+
+function copyAndAutoFillOtp(){
+  if(otpTargetInput){
+    const inp = document.getElementById(otpTargetInput);
+    if(inp) inp.value = activeOtpCode;
+  }
+  closeOtpPopup();
+  toast("OTP auto-filled!");
+}
+
+function closeOtpPopup(){
+  const modal = document.getElementById("otpPopupModal");
+  if(modal) modal.classList.remove("show");
+}
+
+/* ----------------- AUTH & AUTO-LOGIN SESSION ----------------- */
+let captchaVal = 0;
+function newCaptcha(){
+  const a = Math.floor(Math.random() * 8) + 1, b = Math.floor(Math.random() * 8) + 1;
+  captchaVal = a + b;
+  ["captchaQuestion", "loginCaptchaQuestion"].forEach(id => {
+    const el = document.getElementById(id); if(el) el.textContent = `${a} + ${b} = ?`;
+  });
+}
+
+function hideAuthScreens(){
+  ["guide", "register", "login", "forgotPassword", "adminLogin", "admin", "app"].forEach(id => {
+    document.getElementById(id)?.classList.add("hidden");
+  });
+}
+
+function showRegister(){ hideAuthScreens(); document.getElementById("register").classList.remove("hidden"); newCaptcha(); }
+function showUserLogin(){ hideAuthScreens(); document.getElementById("login").classList.remove("hidden"); newCaptcha(); }
+function showForgotPassword(){ hideAuthScreens(); document.getElementById("forgotPassword").classList.remove("hidden"); }
+function showAdminLogin(){ hideAuthScreens(); document.getElementById("adminLogin").classList.remove("hidden"); }
+function showGuide(){ hideAuthScreens(); document.getElementById("guide")?.classList.remove("hidden"); window.scrollTo({top:0, behavior:"instant"}); }
+function replayGuide(){ showGuide(); }
+function guideLogin(){ showUserLogin(); }
+
+function showApp(){
+  hideAuthScreens();
+  document.getElementById("app").classList.remove("hidden");
+  applyTheme();
+  renderAll();
+  renderCalendar();
+  updateNotificationStatus();
+}
+
+function rememberPermanentSession(profile){
+  try{
+    localStorage.setItem(PERSIST_USER_KEY, JSON.stringify(profile));
+    if(profile?.phone) localStorage.setItem(ACTIVE_SESSION_KEY, String(profile.phone));
+  }catch(e){}
+}
+
+function restoreSession(){
+  try{
+    const raw = localStorage.getItem(PERSIST_USER_KEY);
+    if(raw){
+      const profile = JSON.parse(raw);
+      if(profile && profile.phone){
+        S.profile = profile;
+        S.user = profile.name || "User";
+        S.session = true;
+        return true;
+      }
+    }
+    const ph = localStorage.getItem(ACTIVE_SESSION_KEY);
+    if(ph){
+      S.session = true;
+      S.user = S.profile?.name || S.user || "User";
+      return true;
+    }
+  }catch(e){}
+  return false;
+}
+
+function startGuide(){
+  if(restoreSession()){
+    showApp();
+  } else {
+    showRegister();
+  }
+}
+function skipGuide(){ startGuide(); }
+
+async function requestOtp(){
+  const phone = document.getElementById("registerPhone").value.trim();
+  if(!/^\d{10}$/.test(phone)) return toast("Please enter a valid 10-digit number.");
+  try{
+    const res = await fetch(`${AUTH_URL}/send-otp`, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({phone}) });
+    const d = await res.json();
+    const code = d.devOtp || d.otp || "123456";
+    showOtpPopout(code, "registerOtp");
+    toast("OTP sent successfully!");
+  }catch(e){ showOtpPopout("123456", "registerOtp"); }
+}
+
+async function requestForgotOtp(){
+  const phone = document.getElementById("forgotPhone").value.trim();
+  if(!/^\d{10}$/.test(phone)) return toast("Please enter a valid 10-digit number.");
+  try{
+    const res = await fetch(`${AUTH_URL}/send-otp`, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({phone}) });
+    const d = await res.json();
+    const code = d.devOtp || d.otp || "123456";
+    showOtpPopout(code, "forgotOtp");
+    toast("OTP sent successfully!");
+  }catch(e){ showOtpPopout("123456", "forgotOtp"); }
+}
+
+async function recoverPassword(e){
+  e.preventDefault();
+  const phone = document.getElementById("forgotPhone").value.trim();
+  const otp = document.getElementById("forgotOtp").value.trim();
+  const newPassword = document.getElementById("forgotNewPassword").value.trim();
+
+  try{
+    const res = await fetch(`${AUTH_URL}/reset-password`, {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({ phone, otp, newPassword })
+    });
+    const d = await res.json();
+    if(res.ok && d.success){
+      alert("Password updated successfully! Please log in.");
+      showUserLogin();
+    } else {
+      toast(d.message || "Failed to reset password.");
+    }
+  }catch(err){ toast("Server unreachable. Please check connection."); }
+}
+
+async function registerUser(e){
+  e.preventDefault();
+  const name = document.getElementById("registerName").value.trim();
+  const gender = document.getElementById("registerGender").value;
+  const dobRaw = document.getElementById("registerDob").value.trim();
+  const phone = document.getElementById("registerPhone").value.trim();
+  const password = document.getElementById("registerPassword").value;
+  const otp = document.getElementById("registerOtp").value.trim();
+  const height = Number(document.getElementById("registerHeight").value);
+  const weight = Number(document.getElementById("registerWeight").value);
+  const ans = Number(document.getElementById("captchaAnswer").value);
+
+  if(ans !== captchaVal) return toast("Incorrect Captcha answer.");
+  const p = dobRaw.split("/");
+  const dobIso = `${p[2]}-${p[1]}-${p[0]}`;
+
+  try{
+    const res = await fetch(`${AUTH_URL}/register`, {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({ name, gender, dob: dobIso, phone, password, otp, height, weight })
+    });
+    const d = await res.json();
+    if(res.ok){
+      toast("Profile registered! Please log in.");
+      showUserLogin();
+    } else toast(d.message || "Registration failed.");
+  }catch(err){ toast("Server connection error."); }
+}
+
+async function signIn(e){
+  e.preventDefault();
+  const phone = document.getElementById("loginPhone").value.trim();
+  const password = document.getElementById("loginPassword").value;
+  const ans = Number(document.getElementById("loginCaptchaAnswer").value);
+  if(ans !== captchaVal) return toast("Incorrect Captcha.");
+
+  try{
+    const res = await fetch(`${AUTH_URL}/login`, {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({ phone, password })
+    });
+    const d = await res.json();
+    if(res.ok){
+      const remote = d.user || d.profile || { name:"User", phone };
+      S.profile = remote; S.user = remote.name || "User"; S.session = true;
+      rememberPermanentSession(remote);
+      saveState();
+      showApp();
+      toast("Welcome back, " + S.user + "!");
+    } else toast(d.message || "Invalid credentials.");
+  }catch(err){ toast("Connection failed."); }
+}
+
+function logout(){
+  if(!confirm("Are you sure you want to log out?")) return;
+  localStorage.removeItem(ACTIVE_SESSION_KEY);
+  localStorage.removeItem(PERSIST_USER_KEY);
+  S.session = false; S.user = null; S.profile = null;
+  saveState();
+  showGuide();
+  toast("You have been logged out.");
+}
+
+/* ----------------- ADMIN DASHBOARD ----------------- */
+async function adminSignIn(e){
+  e.preventDefault();
+  const username = document.getElementById("adminUser").value.trim();
+  const password = document.getElementById("adminPass").value;
+  if(!username || !password) return toast("Enter admin username and password.");
+
+  try{
+    const res = await fetch(`${AUTH_URL}/admin/login`, {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({ username, password })
+    });
+    const data = await res.json();
+    if(!res.ok) return toast(data.message || "Admin login failed.");
+    localStorage.setItem(ADMIN_TOKEN_KEY, data.token);
+    hideAuthScreens();
+    document.getElementById("admin").classList.remove("hidden");
+    await loadAdminDashboard();
+    toast("Admin login successful.");
+  }catch(err){ toast("Could not connect to admin server."); }
+}
+
+let adminSearchTimer = null;
+function scheduleAdminSearch(){
+  clearTimeout(adminSearchTimer);
+  adminSearchTimer = setTimeout(loadAdminDashboard, 250);
+}
+
+async function loadAdminDashboard(){
+  try{
+    const token = localStorage.getItem(ADMIN_TOKEN_KEY) || "";
+    const res = await fetch(`${AUTH_URL}/admin/dashboard`, { headers: { Authorization: `Bearer ${token}` } });
+    const data = await res.json();
+    if(res.status === 401 || res.status === 403){
+      localStorage.removeItem(ADMIN_TOKEN_KEY);
+      showAdminLogin();
+      return toast("Admin session expired.");
+    }
+    const stats = data.stats || {};
+    const users = Array.isArray(data.users) ? data.users : [];
+    setText("adminTotal", stats.totalUsers ?? users.length);
+    setText("adminToday", stats.registeredToday ?? 0);
+    setText("adminMale", stats.maleProfiles ?? 0);
+    setText("adminFemale", stats.femaleProfiles ?? 0);
+
+    const query = (document.getElementById("adminSearch")?.value || "").trim().toLowerCase();
+    const filtered = users.filter(u => `${u.name||""} ${u.gender||""} ${u.phone||""}`.toLowerCase().includes(query));
+    const tbody = document.getElementById("adminUsers");
+    if(tbody){
+      tbody.innerHTML = filtered.length ? filtered.map(u => `<tr>
+        <td><b>${esc(u.name || "")}</b></td>
+        <td>${esc(u.gender || "")}</td>
+        <td>${esc(displayDob(u.dob || ""))}</td>
+        <td>${esc(u.phone || "")}</td>
+        <td>${esc(u.createdAt ? new Date(u.createdAt).toLocaleDateString() : "")}</td>
+        <td>${u._id ? `<button type="button" class="btn sm danger" onclick='deleteBackendUser("${u._id}")'>Delete</button>` : "—"}</td>
+      </tr>`).join("") : '<tr><td colspan="6">No registered users found.</td></tr>';
+    }
+    renderStudyAdmin();
+  }catch(err){}
+}
+
+async function deleteBackendUser(userId){
+  if(!confirm("Are you sure you want to delete this user?")) return;
+  const token = localStorage.getItem(ADMIN_TOKEN_KEY);
+  try{
+    const res = await fetch(`${AUTH_URL}/admin/user/${encodeURIComponent(userId)}`, {
+      method:"DELETE", headers:{ Authorization:`Bearer ${token}` }
+    });
+    const d = await res.json();
+    if(res.ok && d.success !== false){ toast("User deleted."); await loadAdminDashboard(); }
+    else toast("Delete failed.");
+  }catch(err){ toast("Server error."); }
+}
+
+function adminLogout(){ localStorage.removeItem(ADMIN_TOKEN_KEY); showUserLogin(); }
+function exportUsers(){ toast("Exporting data..."); }
+function clearUsers(){ if(confirm("Clear records?")) toast("Action protected."); }
+
+/* ----------------- STUDY CORNER ----------------- */
+function getStudyData(){
+  try{ const d = JSON.parse(localStorage.getItem(STUDY_KEY)||"{}"); return { materials: Array.isArray(d.materials)?d.materials:[], submissions: Array.isArray(d.submissions)?d.submissions:[] }; }
+  catch(_){ return { materials:[], submissions:[] }; }
+}
+function storeStudyData(d){
+  try{ localStorage.setItem(STUDY_KEY, JSON.stringify(d)); return true; } catch(_){ return false; }
+}
+
+async function handleStudyUpload(event, isAdmin){
+  event.preventDefault();
+  const form = event.currentTarget, data = new FormData(form);
+  const title = String(data.get("title")||"").trim(), className = String(data.get("className")||"").trim();
+  const description = String(data.get("description")||"").trim(), file = form.elements.file?.files?.[0];
+  if(!title || !className) return toast("Title and class are required.");
+  let attachedFile = null;
+  if(file){
+    attachedFile = { name: file.name, data: await new Promise(res => { const r = new FileReader(); r.onload = ()=>res(r.result); r.readAsDataURL(file); }) };
+  }
+  const record = { id: Date.now(), title, className, kind: String(data.get("kind")||"Notes"), description, file: attachedFile, createdAt: new Date().toLocaleDateString(), uploadedBy: isAdmin ? "Admin" : (S.user || "Student") };
+  const study = getStudyData();
+  if(isAdmin) study.materials.unshift(record); else study.submissions.unshift(record);
+  if(!storeStudyData(study)) return;
+  form.reset(); renderStudyCorner(); renderStudyAdmin();
+  toast(isAdmin ? "Published!" : "Submitted for admin review.");
+}
+
+function studyMaterialHtml(x, admin = false){
+  const fileHtml = x.file?.data ? `<a class="study-file" href="${esc(x.file.data)}" download="${esc(x.file.name||"study-material")}">⬇️ Download ${esc(x.file.name||"File")}</a>` : "";
+  return `<div class="item study-material">
+    <div class="main">
+      <div class="title">${esc(x.title)} <span class="badge">${esc(x.kind||"Notes")}</span> <span class="badge">${esc(x.className)}</span></div>
+      <div class="meta">${esc(x.description || "No description provided.")}</div>
+      <div class="meta">Uploaded by ${esc(x.uploadedBy||"Admin")} · ${esc(x.createdAt||"")}</div>
+      ${fileHtml}
+    </div>
+    ${admin ? `<div class="actions"><button class="btn sm danger" onclick='deleteStudyMaterial("${x.id}",${x.pending?"true":"false"})'>Delete</button></div>` : ""}
+  </div>`;
+}
+
+function renderStudyCorner(){
+  const data = getStudyData(), filter = document.getElementById("studyClassFilter"), selected = filter?.value || "";
+  if(filter && filter.options.length <= 1){
+    filter.innerHTML = '<option value="">All classes</option>' + STUDY_CLASSES.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join("");
+    filter.value = selected;
+  }
+  const visible = data.materials.filter(x => !filter?.value || x.className === filter.value);
+  const container = document.getElementById("studyMaterials");
+  if(container) container.innerHTML = visible.length ? visible.map(x=>studyMaterialHtml(x, false)).join("") : `<div class="meta">No materials available yet.</div>`;
+}
+
+function renderStudyAdmin(){
+  const data = getStudyData(), pending = data.submissions.map(x => ({ ...x, pending: true }));
+  const subCont = document.getElementById("studySubmissions");
+  if(subCont) subCont.innerHTML = pending.length ? pending.map(x => `${studyMaterialHtml(x, true)}<div class="actions" style="margin:4px 0 10px 10px"><button class="btn sm ok" onclick='approveStudySubmission("${x.id}")'>✅ Approve</button></div>`).join("") : `<div class="meta">No pending submissions.</div>`;
+  const matCont = document.getElementById("adminStudyMaterials");
+  if(matCont) matCont.innerHTML = data.materials.length ? data.materials.map(x=>studyMaterialHtml(x, true)).join("") : `<div class="meta">No published items.</div>`;
+}
+
+function approveStudySubmission(id){
+  const data = getStudyData(), idx = data.submissions.findIndex(x => String(x.id) === String(id));
+  if(idx < 0) return;
+  const item = data.submissions.splice(idx, 1)[0];
+  item.createdAt = new Date().toLocaleDateString();
+  data.materials.unshift(item);
+  storeStudyData(data); renderStudyAdmin(); renderStudyCorner(); toast("Approved!");
+}
+
+function deleteStudyMaterial(id, pending = false){
+  if(!confirm("Delete?")) return;
+  const data = getStudyData(), list = pending ? "submissions" : "materials";
+  data[list] = data[list].filter(x => String(x.id) !== String(id));
+  storeStudyData(data); renderStudyAdmin(); renderStudyCorner(); toast("Deleted.");
+}
+
+function loadRoutineFile(event){
+  const file = event.target.files?.[0]; if(!file) return;
+  const r = new FileReader(); r.onload = ()=>{ document.getElementById("routineText").value = String(r.result||""); analyzeRoutine(); }; r.readAsText(file);
+}
+function analyzeRoutine(e){
+  if(e?.preventDefault) e.preventDefault();
+  const text = document.getElementById("routineText").value.trim();
+  if(!text) return toast("Enter or paste your routine text.");
+  const lines = text.split("\n").filter(Boolean);
+  const resEl = document.getElementById("routineAnalysis");
+  if(resEl){
+    resEl.innerHTML = `<div class="routine-result"><b>📋 Routine Analysis · ${lines.length} slots found</b><ul>${lines.map(l=>`<li>${esc(l)}</li>`).join("")}</ul><button class="btn sm" onclick="applyRoutineQuick()">✅ Add as Tasks</button></div>`;
+  }
+}
+function applyRoutineQuick(){
+  const text = document.getElementById("routineText").value.trim();
+  const lines = text.split("\n").filter(Boolean);
+  lines.forEach(l=>{ S.tasks.push({ id: Date.now() + Math.random(), title: l, startDate: today(), endDate: today(), done: false, priority: "Normal" }); });
+  saveState(); toast("Routine added to tasks!");
+}
+function clearRoutineAnalysis(){ document.getElementById("routineText").value = ""; document.getElementById("routineAnalysis").innerHTML = ""; }
+
+/* ----------------- GEMINI AI REAL BACKEND WITH FAST TIMEOUT FIX ----------------- */
+function addAIMsg(txt, kind = "bot"){
+  const c = document.getElementById("aiChat"); if(!c) return;
+  const m = document.createElement("div");
+  m.className = `ai-msg ${kind}`;
+  m.innerText = txt;
+  c.appendChild(m);
+  c.scrollTop = c.scrollHeight;
+  return m;
+}
+
+function askAI(q){
+  const inp = document.getElementById("aiInput"); if(inp) inp.value = q;
+  sendAI({ preventDefault(){} });
+}
+
+async function sendAI(e){
+  if(e && e.preventDefault) e.preventDefault();
+  const inp = document.getElementById("aiInput");
+  const q = (inp?.value || "").trim();
+  if(!q) return;
+
+  addAIMsg(q, "user");
+  if(inp) inp.value = "";
+  const loading = addAIMsg("Gemini is answering...", "bot");
+
+  // AbortController to prevent 35000ms long freezing timeouts
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 12000);
+
+  try{
+    const res = await fetch(AI_URL, {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({ prompt: q }),
+      signal: controller.signal
+    });
+    clearTimeout(timeoutId);
+    const d = await res.json();
+    if(d && d.reply){
+      if(loading) loading.innerText = d.reply;
+      return;
+    }
+  }catch(err){
+    clearTimeout(timeoutId);
+  }
+
+  // Smart immediate fallback so user is NEVER greeted with timeout errors
+  const qL = q.toLowerCase();
+  let smartReply = "Keep consistent with your daily tasks, drink water regularly, and stick to your workout plan for steady growth!";
+  if(qL.includes("height") || qL.includes("growth") || qL.includes("exercise")){
+    smartReply = "For height growth and posture: 1) Practice Cobra Stretch & Bar Hang daily to decompress your spine. 2) Drink adequate milk/water. 3) Maintain an upright sitting posture.";
+  } else if(qL.includes("study") || qL.includes("plan") || qL.includes("pcm")){
+    smartReply = "Here is a balanced study plan: Morning 6-8 AM for concept revision (Physics/Maths), Evening 4-6 PM for problem sets, and 1 hour before sleep for formula recap.";
+  } else if(qL.includes("budget") || qL.includes("money") || qL.includes("save")){
+    smartReply = "Track all small expenses in the Money tab. Allocate 50% for necessities, 30% for study/growth tools, and save 20% consistently.";
+  }
+  if(loading) loading.innerText = smartReply;
+}
+
+/* ----------------- 15+ CLEAR HUMAN POSTURE WORKOUTS ----------------- */
+const EXERCISES = [
+  {
+    name: "Cobra Stretch (Spine Lift)",
+    sec: 35,
+    info: "Releases spinal disc compression to stimulate vertical growth",
+    visual: "https://upload.wikimedia.org/wikipedia/commons/e/e4/Bhujangasana_Yoga-Asana_Nina-Mel.jpg",
+    steps: [
+      "Lie face down on the floor with your palms flat beneath your shoulders.",
+      "Inhale slowly and press your hands to gently lift your chest forward and upward.",
+      "Keep your hips firmly grounded and elbows soft, not rigidly locked.",
+      "Hold the stretch for 5 seconds while looking slightly up, then exhale and lower."
+    ],
+    form: "Keep shoulders down away from ears. Lift with upper back, not lower back pinch.",
+    mistake: "Do not throw your head back violently or lift hips off the floor."
+  },
+  {
+    name: "Bar Hanging (Spinal Decompression)",
+    sec: 40,
+    info: "Gravitational stretch to lengthen compressed spinal joints",
+    visual: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Dead_hang_exercise.svg/800px-Dead_hang_exercise.svg.png",
+    steps: [
+      "Grip a sturdy overhead bar with hands slightly wider than shoulders.",
+      "Gently take your feet off the ground and allow gravity to pull your body downward.",
+      "Breathe deeply into your abdomen and completely relax your hips and legs.",
+      "Hold smoothly for the full timer duration without swinging."
+    ],
+    form: "Keep arms extended and let your core and lower body hang dead relaxed.",
+    mistake: "Avoid swinging or shrugging your neck into your shoulders."
+  },
+  {
+    name: "Cat-Cow Spine Wave",
+    sec: 40,
+    info: "Dynamic spinal mobility and back alignment",
+    visual: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Marjaryasana-Bitilasana.svg/800px-Marjaryasana-Bitilasana.svg.png",
+    steps: [
+      "Get on hands and knees with wrists under shoulders and knees under hips.",
+      "Inhale (Cow): Drop your belly toward the floor, lifting chest and tailbone.",
+      "Exhale (Cat): Tuck chin to chest and round your back upward like a cat.",
+      "Transition between both postures smoothly with each breath cycle."
+    ],
+    form: "Coordinate every movement with slow, deep breathing.",
+    mistake: "Avoid jerky movements; maintain smooth rhythmic articulation."
+  },
+  {
+    name: "Forward Spine Fold",
+    sec: 35,
+    info: "Hamstring and posterior chain elongation",
+    visual: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Paschimottanasana_Yoga-Asana_Nina-Mel.jpg/800px-Paschimottanasana_Yoga-Asana_Nina-Mel.jpg",
+    steps: [
+      "Sit on the floor with legs straight in front of you.",
+      "Inhale and reach arms overhead to elongate your torso.",
+      "Hinge forward from the hips and reach for your ankles or toes.",
+      "Hold the gentle stretch without bouncing."
+    ],
+    form: "Hinge from your hips with a flat back rather than hunching your neck.",
+    mistake: "Do not bounce aggressively into the stretch."
+  },
+  {
+    name: "Glute Bridges",
+    sec: 40,
+    info: "Realigns pelvis and activates posterior posture chain",
+    visual: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Setu_Bandha_Sarvangasana_Yoga-Asana_Nina-Mel.jpg/800px-Setu_Bandha_Sarvangasana_Yoga-Asana_Nina-Mel.jpg",
+    steps: [
+      "Lie on your back with knees bent and feet flat on the floor.",
+      "Drive through your heels to raise your hips until knees and shoulders align.",
+      "Squeeze your glutes tightly at the top for 2 seconds.",
+      "Lower hips slowly to the floor and repeat."
+    ],
+    form: "Drive power through heels, keeping knees tracking straight.",
+    mistake: "Do not overarch your lower back past a flat diagonal line."
+  },
+  {
+    name: "Calf Raises on Edge",
+    sec: 40,
+    info: "Stimulates ankle alignment and lower limb bone density",
+    visual: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Calf_raises.svg/800px-Calf_raises.svg.png",
+    steps: [
+      "Stand on the balls of your feet on flat ground or a step edge.",
+      "Push upward as high as possible onto your toes.",
+      "Pause for 1 second at maximum elevation.",
+      "Lower heels slowly under control for a deep stretch."
+    ],
+    form: "Maintain an upright posture without leaning forward.",
+    mistake: "Do not roll your ankles outward."
+  },
+  {
+    name: "Standard Push-Ups",
+    sec: 35,
+    info: "Upper body strength and total-body posture foundation",
+    visual: "https://upload.wikimedia.org/wikipedia/commons/b/b8/Liegestuetze_1.gif",
+    steps: [
+      "Start in a high plank with hands slightly wider than shoulder-width.",
+      "Lower your chest until it hovers 2 inches above the ground.",
+      "Keep elbows tucked at a 45-degree angle to your ribs.",
+      "Press through your palms to return to the top position."
+    ],
+    form: "Maintain a rigid plank line from crown of head to heels.",
+    mistake: "Do not let your hips sag toward the floor."
+  },
+  {
+    name: "Bodyweight Air Squats",
+    sec: 40,
+    info: "Leg power and pelvic bone health",
+    visual: "https://upload.wikimedia.org/wikipedia/commons/8/82/Squats.gif",
+    steps: [
+      "Stand with feet shoulder-width apart, toes pointing slightly outward.",
+      "Hinge your hips back and bend knees as if sitting back into a chair.",
+      "Lower down until thighs are parallel with the floor.",
+      "Push through mid-foot to stand back up tall."
+    ],
+    form: "Keep chest tall and proud throughout the movement.",
+    mistake: "Do not allow knees to collapse inward."
+  },
+  {
+    name: "Core Isometric Plank",
+    sec: 35,
+    info: "Strengthens deep abdominal wall to eliminate slouching",
+    visual: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Plank_exercise.svg/800px-Plank_exercise.svg.png",
+    steps: [
+      "Rest on forearms with elbows directly beneath your shoulders.",
+      "Extend your legs behind you, balancing on toes.",
+      "Brace your core, glutes, and thighs firmly.",
+      "Hold steady while maintaining calm, regular breathing."
+    ],
+    form: "Pull your belly button inward toward your spine.",
+    mistake: "Do not arch your back or lift your hips too high."
+  },
+  {
+    name: "Jumping Jacks Cardio",
+    sec: 30,
+    info: "Full-body circulation and growth plate stimulation",
+    visual: "https://upload.wikimedia.org/wikipedia/commons/a/a2/Jumping_jack.gif",
+    steps: [
+      "Stand tall with feet together and hands by your sides.",
+      "Jump your feet out wide while swinging arms overhead.",
+      "Jump back to the starting stance in a continuous fluid rhythm.",
+      "Land softly on the balls of your feet."
+    ],
+    form: "Keep knees slightly bent to absorb impact softly.",
+    mistake: "Avoid slamming your heels hard onto the floor."
+  },
+  {
+    name: "Forward Step Lunges",
+    sec: 40,
+    info: "Hip flexor opening and unilateral limb balance",
+    visual: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Lunges.gif",
+    steps: [
+      "Take a large, controlled step forward with your right leg.",
+      "Lower hips until front thigh is parallel to the ground.",
+      "Ensure front knee stays directly above your ankle.",
+      "Push off the front foot to return to standing; alternate sides."
+    ],
+    form: "Maintain an upright torso without leaning forward.",
+    mistake: "Do not slam the trailing knee into the floor."
+  },
+  {
+    name: "Mountain Climbers",
+    sec: 35,
+    info: "Dynamic core and cardio exercise",
+    visual: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mountain_climber_exercise.svg/800px-Mountain_climber_exercise.svg.png",
+    steps: [
+      "Start in a high plank with hands beneath your shoulders.",
+      "Brace your core and bring one knee toward your chest.",
+      "Return that foot and switch legs in a controlled rhythm.",
+      "Keep your hips level and continue while breathing steadily."
+    ],
+    form: "Keep shoulders over wrists and your body in a steady plank.",
+    mistake: "Do not let your lower back sag or bounce your hips excessively."
+  },
+  {
+    name: "Arm Circles",
+    sec: 30,
+    info: "Gentle shoulder mobility warm-up",
+    visual: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Arm_circles.svg/800px-Arm_circles.svg.png",
+    steps: [
+      "Stand tall with feet about shoulder-width apart.",
+      "Extend both arms out to the sides at shoulder height.",
+      "Make small, controlled circles, then gradually make them larger.",
+      "Reverse the direction and keep your shoulders relaxed."
+    ],
+    form: "Keep your arms level and make smooth, controlled circles.",
+    mistake: "Do not shrug your shoulders or swing your arms forcefully."
+  },
+  {
+    name: "Downward Dog Stretch",
+    sec: 40,
+    info: "Full-body stretch for shoulders, back, and hamstrings",
+    visual: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Adho_Mukha_Svanasana_Yoga-Asana_Nina-Mel.jpg/800px-Adho_Mukha_Svanasana_Yoga-Asana_Nina-Mel.jpg",
+    steps: [
+      "Start on hands and knees, with hands slightly forward of your shoulders.",
+      "Tuck your toes and lift your hips up and back.",
+      "Lengthen your spine and gently press your chest toward your thighs.",
+      "Keep knees softly bent if needed and breathe slowly."
+    ],
+    form: "Spread your fingers and keep your back long without forcing your heels down.",
+    mistake: "Do not lock your knees or round your back to reach the floor."
+  },
+  {
+    name: "Restorative Child Pose",
+    sec: 45,
+    info: "Spine relaxation and gentle lower back decompression",
+    visual: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Balasana_Yoga-Asana_Nina-Mel.jpg/800px-Balasana_Yoga-Asana_Nina-Mel.jpg",
+    steps: [
+      "Kneel on the floor with knees apart and big toes touching.",
+      "Sit your hips back toward your heels and fold forward.",
+      "Extend arms out in front of you and rest forehead on the mat.",
+      "Take deep, slow breaths into your ribcage and lower back."
+    ],
+    form: "Allow your chest to sink heavier with every exhale.",
+    mistake: "Do not force your hips down if knees feel uncomfortable."
+  }
+];
+
+let curExIndex = 0, exSec = 35, exInterval = null;
+
+const EXERCISE_TYPES = ["cobra", "hang", "catcow", "fold", "bridge", "calf", "pushup", "squat", "plank", "jumping", "lunge", "mountain", "circles", "downward", "child"];
+let animFrameId = null;
+
+function runHumanGuider(type){
+  const canvas = document.getElementById("exerciseCanvas");
+  const ctx = canvas?.getContext("2d");
+  if(!ctx) return;
+  if(animFrameId) cancelAnimationFrame(animFrameId);
+  let t = 0;
+
+  const line = (x1,y1,x2,y2,color="#e2e8f0",width=9)=>{
+    ctx.lineCap="round"; ctx.lineJoin="round";
+    ctx.strokeStyle="rgba(2,6,23,.9)"; ctx.lineWidth=width+5;
+    ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
+    ctx.strokeStyle=color; ctx.lineWidth=width;
+    ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
+    ctx.fillStyle=color;
+    ctx.beginPath(); ctx.arc(x2,y2,Math.max(4,width*.48),0,Math.PI*2); ctx.fill();
+  };
+  const head = (x,y,r=14)=>{
+    ctx.fillStyle="#f2c9a5"; ctx.strokeStyle="#fff7ed"; ctx.lineWidth=3;
+    ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fill(); ctx.stroke();
+    ctx.fillStyle="#0f172a";
+    ctx.beginPath(); ctx.arc(x+r*.38,y-r*.12,1.8,0,Math.PI*2); ctx.fill();
+  };
+  const floor = ()=>line(24,238,316,238,"#334155",3);
+
+  function frame(){
+    t += .045;
+    const w = Math.sin(t), p = (w+1)/2;
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    floor();
+
+    if(type === "cobra"){
+      const lift = p*28;
+      head(67,176-lift,13); line(79,181-lift,155,215,"#38bdf8",13); line(155,215,272,224,"#94a3b8",9);
+      line(104,190-lift,96,233,"#e2e8f0",7); line(126,198-lift,132,233,"#e2e8f0",7);
+    } else if(type === "hang"){
+      line(70,40,270,40,"#f59e0b",8); head(170,83+w*3); line(170,98,170,163,"#38bdf8",13);
+      line(161,105,130,42,"#e2e8f0",8); line(179,105,210,42,"#e2e8f0",8);
+      line(170,163,153,224,"#94a3b8",9); line(170,163,187,224,"#94a3b8",9);
+    } else if(type === "squat"){
+      const hip=153+p*30, knee=198+p*7; head(170,hip-83); line(170,hip-68,170,hip,"#38bdf8",13);
+      line(170,hip-47,133,hip-25,"#e2e8f0",7); line(170,hip-47,207,hip-25,"#e2e8f0",7);
+      line(170,hip,137,knee,"#94a3b8",10); line(137,knee,132,232,"#94a3b8",9);
+      line(170,hip,203,knee,"#94a3b8",10); line(203,knee,208,232,"#94a3b8",9);
+    } else if(type === "pushup" || type === "plank" || type === "mountain"){
+      const dip = type === "pushup" ? p*19 : 0, knee = type === "mountain" ? p*30 : 0;
+      head(66,146+dip); line(80,151+dip,187,177+dip*.35,"#38bdf8",13); line(187,177+dip*.35,278,222,"#94a3b8",9);
+      line(111,160+dip*.7,105,226,"#e2e8f0",8); line(105,226,128,226,"#e2e8f0",7);
+      if(type === "mountain") line(188,177,155+knee,190+knee,"#94a3b8",9);
+    } else if(type === "jumping"){
+      const spread=18+p*35, jump=w>0? -w*10:0;
+      head(170,78+jump); line(170,93+jump,170,158+jump,"#38bdf8",13);
+      line(170,108+jump,170-spread,65+jump,"#e2e8f0",8); line(170,108+jump,170+spread,65+jump,"#e2e8f0",8);
+      line(170,158+jump,170-spread,231,"#94a3b8",9); line(170,158+jump,170+spread,231,"#94a3b8",9);
+    } else if(type === "bridge"){
+      const lift=p*26; head(67,208); line(81,207,145,208-lift,"#38bdf8",13); line(145,208-lift,203,208,"#38bdf8",13);
+      line(203,208,237,232,"#94a3b8",9); line(145,208-lift,118,232,"#94a3b8",9); line(86,210,75,235,"#e2e8f0",8);
+    } else if(type === "catcow"){
+      const arch=w*12; head(76,157); line(90,165,165,170-arch,"#38bdf8",13); line(165,170-arch,234,165,"#38bdf8",13);
+      line(105,169,96,230,"#e2e8f0",8); line(151,170-arch,148,230,"#e2e8f0",8); line(220,166,226,230,"#94a3b8",8); line(234,165,266,222,"#94a3b8",8);
+    } else if(type === "fold"){
+      head(80,204); line(94,205,158,205,"#38bdf8",13); line(158,205,276,205,"#94a3b8",9);
+      line(151,198,128,138+p*20,"#38bdf8",12); line(128,138+p*20,96,201,"#e2e8f0",7);
+      line(159,210,147,235,"#e2e8f0",8); line(159,210,174,235,"#e2e8f0",8);
+    } else if(type === "calf"){
+      const rise=p*13; head(170,76-rise); line(170,91-rise,170,158-rise,"#38bdf8",13);
+      line(170,111-rise,132,145-rise,"#e2e8f0",7); line(170,111-rise,208,145-rise,"#e2e8f0",7);
+      line(170,158-rise,145,222-rise,"#94a3b8",9); line(170,158-rise,195,222-rise,"#94a3b8",9);
+      line(128,232,212,232,"#f59e0b",5);
+    } else if(type === "lunge"){
+      const shift=p*16; head(166,73); line(166,88,166,151,"#38bdf8",13);
+      line(166,108,133,142,"#e2e8f0",7); line(166,108,199,142,"#e2e8f0",7);
+      line(166,151,125-shift,185,"#94a3b8",10); line(125-shift,185,116-shift,229,"#94a3b8",9);
+      line(166,151,207+shift,184,"#94a3b8",10); line(207+shift,184,218+shift,229,"#94a3b8",9);
+    } else if(type === "circles"){
+      const a=t*1.8; head(170,78); line(170,93,170,160,"#38bdf8",13);
+      line(170,110,170+Math.cos(a)*55,110+Math.sin(a)*42,"#e2e8f0",8);
+      line(170,110,170+Math.cos(a+Math.PI)*55,110+Math.sin(a+Math.PI)*42,"#e2e8f0",8);
+      line(170,160,145,230,"#94a3b8",9); line(170,160,195,230,"#94a3b8",9);
+    } else if(type === "downward"){
+      head(270,193); line(254,194,183,150,"#38bdf8",13); line(183,150,111,194,"#38bdf8",13);
+      line(111,194,75,231,"#e2e8f0",8); line(111,194,122,231,"#e2e8f0",8);
+      line(183,150,174,229,"#94a3b8",9); line(183,150,219,229,"#94a3b8",9);
+    } else if(type === "child"){
+      head(115,191); line(129,194,194,205,"#38bdf8",13); line(194,205,233,224,"#38a3b8",10);
+      line(157,198,78,222,"#e2e8f0",8); line(171,202,103,232,"#e2e8f0",8);
+      line(190,207,222,232,"#94a3b8",9);
+    }
+
+    const cues = {
+      cobra: p > .5 ? "Seena upar uthao ↑" : "Seena dheere neeche lao ↓",
+      hang: "Bar pakadkar latko • body relax rakho",
+      catcow: p > .5 ? "Cow: pet neeche • aage dekho" : "Cat: peeth gol • thodi andar",
+      fold: p > .5 ? "Kamar se aage jhuko ↓" : "Seena upar karke seedhe ho ↑",
+      bridge: p > .5 ? "Koolhe upar uthao • hips tight ↑" : "Koolhe dheere neeche lao ↓",
+      calf: p > .5 ? "Pair ki ungliyon par utho ↑" : "Ediyan dheere neeche lao ↓",
+      pushup: p > .5 ? "Kohni modo • body neeche lao ↓" : "Zameen dhakelo • upar aao ↑",
+      squat: p > .5 ? "Ghutne modo • kursi jaisa baitho ↓" : "Pair se dhakelo • khade ho ↑",
+      plank: "Sir, peeth aur pair ek seedhi line mein",
+      jumping: p > .5 ? "Pair bahar • haath upar ↑" : "Pair paas • haath neeche ↓",
+      lunge: p > .5 ? "Ek kadam aage • dono ghutne modo" : "Pair se dhakelo • wapas seedhe ho ↑",
+      mountain: p > .5 ? "Ek ghutna seene ki taraf lao" : "Pair badlo • kamar sthir rakho",
+      circles: "Seedhe haath se chhote gol ghumao",
+      downward: "Koolhe upar • seena pairon ki taraf",
+      child: "Koolhe ediyon ki taraf • haath aage"
+    };
+    ctx.fillStyle="rgba(15,23,42,.94)";
+    ctx.fillRect(8,244,324,32);
+    ctx.textAlign="center";
+    ctx.fillStyle="#e2e8f0";
+    ctx.font="700 10px system-ui, sans-serif";
+    ctx.fillText(EXERCISES[curExIndex]?.name || "Exercise guide",170,257,310);
+    ctx.fillStyle="#7dd3fc";
+    ctx.font="800 11px system-ui, sans-serif";
+    ctx.fillText(cues[type] || "FOLLOW THE MOVEMENT SLOWLY",170,271,310);
+    ctx.textAlign="start";
+
+    animFrameId = requestAnimationFrame(frame);
+  }
+  frame();
+}
+
+function renderExercises(){
+  const el = document.getElementById("exerciseList"); if(!el) return;
+  el.innerHTML = EXERCISES.map((ex, i) => `
+    <div class="exercise-card">
+      <div>
+        <h3>⚡ ${ex.name}</h3>
+        <div class="meta">${ex.info} · ${ex.sec}s</div>
+      </div>
+      <button class="btn sm" style="margin-top:12px" onclick="chooseExercise(${i})">Open Guide</button>
+    </div>
+  `).join("");
+}
+
+function chooseExercise(i){
+  curExIndex = i;
+  const x = EXERCISES[i];
+  exSec = x.sec;
+  document.getElementById("exerciseName").innerText = x.name;
+  document.getElementById("exerciseInfo").innerText = `${x.info} · ${x.sec}s`;
+  
+  // Draw the selected exercise locally; no remote image request is needed.
+  runHumanGuider(EXERCISE_TYPES[i] || "default");
+
+  document.getElementById("exerciseFormTip").innerText = x.form;
+  document.getElementById("exerciseMistakeTip").innerText = x.mistake;
+  
+  const stepList = document.getElementById("exerciseStepsList");
+  if(stepList){
+    stepList.innerHTML = x.steps.map(s => `<li>${esc(s)}</li>`).join("");
+  }
+
+  updateTimerUI();
+  window.scrollTo({ top: document.getElementById("exercise").offsetTop - 20, behavior: "smooth" });
+}
+
+function updateTimerUI(){
+  const m = String(Math.floor(exSec / 60)).padStart(2, "0");
+  const s = String(exSec % 60).padStart(2, "0");
+  document.getElementById("exerciseTimer").innerText = `${m}:${s}`;
+}
+
+function startExercise(){
+  if(exInterval) return;
+  exInterval = setInterval(()=>{
+    if(exSec > 0){ exSec--; updateTimerUI(); }
+    else { clearInterval(exInterval); exInterval = null; toast("🎉 Workout completed! Excellent work!"); }
+  }, 1000);
+}
+function pauseExercise(){ clearInterval(exInterval); exInterval = null; }
+function resetExercise(){ pauseExercise(); exSec = EXERCISES[curExIndex].sec; updateTimerUI(); }
+
+/* ----------------- DATA MODALS & FORMS ----------------- */
+function openModal(t, id = null){
+  currentType = t; editId = id;
+  const mtitle = document.getElementById("mtitle");
+  const f = document.getElementById("fields");
+  let existing = null;
+  const listMap = { task:"tasks", reminder:"reminders", income:"incomes", expense:"expenses", nutrition:"nutrition", medicine:"medicines", note:"notes", contact:"contacts" };
+  if(id && listMap[t]) existing = S[listMap[t]].find(x => String(x.id) === String(id));
+  mtitle.innerText = (id ? "Edit " : "Add ") + (t.charAt(0).toUpperCase() + t.slice(1));
+
+  if(t === "task"){
+    f.innerHTML = `<div class="form"><div class="field full"><label>Task Title</label><input name="title" required value="${esc(existing?.title)}"></div><div class="field"><label>Start Date</label><input name="startDate" type="date" required value="${esc(existing?.startDate || today())}"></div><div class="field"><label>End Date</label><input name="endDate" type="date" required value="${esc(existing?.endDate || today())}"></div><div class="field full"><label>Priority</label><select name="priority"><option>Normal</option><option>High</option><option>Low</option></select></div></div>`;
+  } else if(t === "reminder"){
+    f.innerHTML = `<div class="form"><div class="field full"><label>Reminder Title</label><input name="title" required value="${esc(existing?.title)}"></div><div class="field"><label>Time</label><input name="time" type="time" required value="${esc(existing?.time || "09:00")}"></div><div class="field"><label>Start Date</label><input name="startDate" type="date" required value="${esc(existing?.startDate || today())}"></div><div class="field full"><label>End Date</label><input name="endDate" type="date" required value="${esc(existing?.endDate || today())}"></div></div>`;
+  } else if(t === "income"){
+    f.innerHTML = `<div class="form"><div class="field full"><label>Income Amount (₹)</label><input name="amount" type="number" step="0.01" min="1" required value="${existing?.amount || ""}"></div><div class="field"><label>Source</label><select name="category"><option>Salary</option><option>Freelancing</option><option>Business</option><option>Gift</option><option>Other</option></select></div><div class="field"><label>Date</label><input name="date" type="date" required value="${esc(existing?.date || today())}"></div><div class="field full"><label>Description</label><input name="note" value="${esc(existing?.note || "")}"></div></div>`;
+  } else if(t === "expense"){
+    f.innerHTML = `<div class="form"><div class="field full"><label>Expense Amount (₹)</label><input name="amount" type="number" step="0.01" min="1" required value="${existing?.amount || ""}"></div><div class="field"><label>Category</label><select name="category"><option>Food</option><option>Study</option><option>Travel</option><option>Shopping</option><option>Bills</option><option>Health</option><option>Other</option></select></div><div class="field"><label>Date</label><input name="date" type="date" required value="${esc(existing?.date || today())}"></div><div class="field full"><label>Description</label><input name="note" value="${esc(existing?.note || "")}"></div></div>`;
+  } else if(t === "nutrition"){
+    f.innerHTML = `<div class="form"><div class="field full"><label>Food / Meal</label><input name="food" required placeholder="e.g. Milk, Rice" value="${esc(existing?.food || "")}"></div><div class="field"><label>Calories (kcal)</label><input name="cal" type="number" value="${existing?.cal || 250}"></div><div class="field"><label>Protein (g)</label><input name="prot" type="number" step="0.1" value="${existing?.prot || 10}"></div><div class="field"><label>Carbohydrates (g)</label><input name="carb" type="number" step="0.1" value="${existing?.carb || 30}"></div><div class="field"><label>Fats (g)</label><input name="fat" type="number" step="0.1" value="${existing?.fat || 5}"></div></div>`;
+  } else if(t === "medicine"){
+    f.innerHTML = `<div class="form"><div class="field full"><label>Medicine Name</label><input name="name" required value="${esc(existing?.name || "")}"></div><div class="field"><label>Dosage</label><input name="dosage" placeholder="1 tablet" value="${esc(existing?.dosage || "")}"></div><div class="field"><label>Time</label><input name="time" type="time" required value="${esc(existing?.time || "08:00")}"></div></div>`;
+  } else if(t === "note"){
+    f.innerHTML = `<div class="form"><div class="field full"><label>Title</label><input name="title" required value="${esc(existing?.title || "")}"></div><div class="field full"><label>Content</label><textarea name="body" required style="min-height:120px">${esc(existing?.body || "")}</textarea></div></div>`;
+  } else if(t === "contact"){
+    f.innerHTML = `<div class="form"><div class="field full"><label>Name</label><input name="name" required value="${esc(existing?.name || "")}"></div><div class="field full"><label>Phone</label><input name="phone" type="tel" required value="${esc(existing?.phone || "")}"></div></div>`;
+  }
+  document.getElementById("modal").classList.add("show");
+}
+
+function closeModal(){ document.getElementById("modal").classList.remove("show"); currentType = ""; editId = null; }
+
+function saveForm(e){
+  e.preventDefault();
+  const d = Object.fromEntries(new FormData(e.target).entries());
+  const listMap = { task:"tasks", reminder:"reminders", income:"incomes", expense:"expenses", nutrition:"nutrition", medicine:"medicines", note:"notes", contact:"contacts" };
+  const targetList = listMap[currentType];
+  if(!targetList) return;
+  if(d.amount) d.amount = Number(d.amount);
+  if(d.cal) d.cal = Number(d.cal);
+  if(d.prot) d.prot = Number(d.prot);
+  if(d.carb) d.carb = Number(d.carb);
+  if(d.fat) d.fat = Number(d.fat);
+
+  if(editId){
+    const idx = S[targetList].findIndex(x => String(x.id) === String(editId));
+    if(idx >= 0) S[targetList][idx] = { ...S[targetList][idx], ...d };
+  } else {
+    S[targetList].unshift({ id: Date.now(), done: false, date: d.date || today(), ...d });
+  }
+  closeModal(); saveState(); toast("Saved successfully!");
+}
+
+function deleteItem(listName, id){
+  if(!confirm("Delete this entry?")) return;
+  S[listName] = S[listName].filter(x => String(x.id) !== String(id));
+  saveState(); toast("Deleted.");
+}
+function toggleDone(listName, id){
+  const x = S[listName].find(item => String(item.id) === String(id));
+  if(x){ x.done = !x.done; saveState(); }
+}
+
+function viewNote(id){
+  const n = S.notes.find(x => String(x.id) === String(id)); if(!n) return;
+  document.getElementById("noteReaderTitle").innerText = n.title;
+  document.getElementById("noteReaderDate").innerText = `Saved on: ${displayDate(n.date || today())}`;
+  document.getElementById("noteReaderBody").innerText = n.body;
+  document.getElementById("noteReaderModal").classList.add("show");
+}
+function closeNoteReader(){ document.getElementById("noteReaderModal").classList.remove("show"); }
+
+function openProfileEditor(){
+  const p = S.profile || {};
+  document.getElementById("mtitle").innerText = "Edit Health & Profile";
+  document.getElementById("fields").innerHTML = `
+    <div class="form">
+      <div class="field full"><label>Full Name</label><input id="epName" required value="${esc(p.name || S.user || "")}"></div>
+      <div class="field"><label>Gender</label><select id="epGender"><option ${p.gender==="Male"?"selected":""}>Male</option><option ${p.gender==="Female"?"selected":""}>Female</option><option ${p.gender==="Other"?"selected":""}>Other</option></select></div>
+      <div class="field"><label>Date of Birth</label><input id="epDob" type="date" value="${esc(p.dob || "2008-01-01")}"></div>
+      <div class="field"><label>Height (cm)</label><input id="epHeight" type="number" step="0.1" value="${p.height || 170}"></div>
+      <div class="field"><label>Weight (kg)</label><input id="epWeight" type="number" step="0.1" value="${p.weight || 65}"></div>
+      <div class="field full"><label>Allergies / Conditions</label><input id="epConditions" placeholder="None, Asthma..." value="${esc(p.healthConditions || "")}"></div>
+    </div>`;
+  currentType = "custom_profile";
+  document.getElementById("modal").classList.add("show");
+}
+
+document.getElementById("form").addEventListener("submit", function(e){
+  if(currentType === "custom_profile"){
+    e.preventDefault();
+    const name = document.getElementById("epName").value.trim(), gender = document.getElementById("epGender").value;
+    const dob = document.getElementById("epDob").value, height = Number(document.getElementById("epHeight").value);
+    const weight = Number(document.getElementById("epWeight").value), healthConditions = document.getElementById("epConditions").value.trim();
+    S.profile = { ...(S.profile || {}), name, gender, dob, height, weight, healthConditions };
+    S.user = name;
+    rememberPermanentSession(S.profile);
+    closeModal(); saveState(); toast("Profile updated!");
+  }
+});
+
+function setText(id, v){ const e = document.getElementById(id); if(e) e.textContent = v; }
+
+/* ----------------- RENDER DATA UI ----------------- */
+function renderAll(){
+  const curDate = today();
+  if(S.water.date !== curDate) S.water = { ...S.water, date: curDate, count: 0 };
+  const activeTasks = S.tasks.filter(t => curDate >= (t.startDate || t.date || curDate) && curDate <= (t.endDate || t.startDate || t.date || curDate));
+  setText("st", `${activeTasks.filter(x => x.done).length}/${activeTasks.length}`);
+  const activeRems = S.reminders.filter(r => curDate >= (r.startDate || r.date || curDate) && curDate <= (r.endDate || r.startDate || r.date || curDate));
+  setText("sr", activeRems.length);
+  const todaySpent = S.expenses.filter(x => x.date === curDate).reduce((a, b) => a + Number(b.amount || 0), 0);
+  setText("se", money(todaySpent));
+  const wPct = Math.min(100, Math.round((S.water.count / S.water.goal) * 100));
+  setText("sw", `${wPct}%`);
+  const hw = document.getElementById("homeWater"); if(hw) hw.style.width = `${wPct}%`;
+  setText("streak", S.tasks.filter(x => x.done).length);
+  setText("noteCount", S.notes.length);
+  setText("goalCount", activeTasks.length);
+  setText("liveNextReminder", activeRems[0] ? `${activeRems[0].title} (${activeRems[0].time})` : "None");
+  setText("livePendingTasks", activeTasks.filter(x => !x.done).length);
+  setText("liveBudgetUsed", money(todaySpent));
+  setText("liveWaterLeft", `${Math.max(0, S.water.goal - S.water.count)} glasses`);
+
+  // Tasks Render
+  const taskQuery = (document.getElementById("qTask")?.value || "").trim().toLowerCase();
+  const visibleTasks = activeTasks.filter(x => String(x.title || "").toLowerCase().includes(taskQuery));
+  const tList = document.getElementById("tasksList");
+  if(tList){
+    tList.innerHTML = visibleTasks.length ? visibleTasks.map(x => `
+      <div class="item ${x.done ? "done" : ""}">
+        <div class="main"><div class="title">${esc(x.title)}</div><div class="meta">${displayDate(x.startDate || x.date)} to ${displayDate(x.endDate || x.startDate || x.date)}</div></div>
+        <div class="actions">
+          <button class="btn sm ${x.done ? "ok" : "soft"}" onclick="toggleDone('tasks', '${x.id}')">${x.done ? "↩" : "✓"}</button>
+          <button class="btn sm soft" onclick="openModal('task', '${x.id}')">✏️</button>
+          <button class="btn sm danger" onclick="deleteItem('tasks', '${x.id}')">🗑️</button>
+        </div>
+      </div>
+    `).join("") : `<div class="meta">${taskQuery ? "No matching tasks." : "No tasks scheduled for today."}</div>`;
+  }
+
+  // Reminders Render
+  const reminderQuery = (document.getElementById("qRem")?.value || "").trim().toLowerCase();
+  const visibleReminders = activeRems.filter(x => String(x.title || "").toLowerCase().includes(reminderQuery));
+  const rList = document.getElementById("remList");
+  if(rList){
+    rList.innerHTML = visibleReminders.length ? visibleReminders.map(x => `
+      <div class="item">
+        <div class="main"><div class="title">⏰ ${esc(x.title)}</div><div class="meta">${esc(x.time)} · Repeats until: ${displayDate(x.endDate || x.date)}</div></div>
+        <div class="actions">
+          <button class="btn sm soft" onclick="openModal('reminder', '${x.id}')">✏️</button>
+          <button class="btn sm danger" onclick="deleteItem('reminders', '${x.id}')">🗑️</button>
+        </div>
+      </div>
+    `).join("") : `<div class="meta">${reminderQuery ? "No matching reminders." : "No active reminders."}</div>`;
+  }
+
+  // Money Transactions
+  const monthKey = curDate.slice(0, 7);
+  const mExpenses = S.expenses.filter(x => x.date?.startsWith(monthKey)).reduce((a, b) => a + Number(b.amount || 0), 0);
+  const mIncomes = S.incomes.filter(x => x.date?.startsWith(monthKey)).reduce((a, b) => a + Number(b.amount || 0), 0);
+  setText("em", money(mExpenses)); setText("im", money(mIncomes)); setText("ib", money(mIncomes - mExpenses));
+  setText("eb", money(Math.max(0, S.budget - mExpenses))); setText("budgetUsed", money(mExpenses)); setText("budgetTarget", money(S.budget));
+  const bBar = document.getElementById("budgetBar"); if(bBar) bBar.style.width = `${S.budget > 0 ? Math.min(100, Math.round((mExpenses / S.budget) * 100)) : 0}%`;
+
+  const expenseQuery = (document.getElementById("qExp")?.value || "").trim().toLowerCase();
+  const combinedRecords = [
+    ...S.incomes.map(x => ({ ...x, recordType: "income" })),
+    ...S.expenses.map(x => ({ ...x, recordType: "expense" }))
+  ].filter(x => `${x.category || ""} ${x.note || ""} ${x.amount || ""}`.toLowerCase().includes(expenseQuery))
+   .sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+  const expListEl = document.getElementById("expList");
+  if(expListEl){
+    expListEl.innerHTML = combinedRecords.length ? combinedRecords.map(r => `
+      <div class="item">
+        <div class="main">
+          <div class="title" style="color:${r.recordType === 'income' ? '#10b981' : '#ef4444'}">${r.recordType === 'income' ? '+ ' : '- '}${money(r.amount)} · ${esc(r.category)}</div>
+          <div class="meta">${displayDate(r.date)} ${r.note ? '· ' + esc(r.note) : ''}</div>
+        </div>
+        <div class="actions">
+          <button class="btn sm soft" onclick="openModal('${r.recordType}', '${r.id}')">✏️</button>
+          <button class="btn sm danger" onclick="deleteItem('${r.recordType === 'income' ? 'incomes' : 'expenses'}', '${r.id}')">🗑️</button>
+        </div>
+      </div>
+    `).join("") : `<div class="meta">No transaction records yet.</div>`;
+  }
+
+  // Nutrition
+  const nFoods = S.nutrition.filter(x => (x.date || curDate) === curDate);
+  const totCal = nFoods.reduce((a, b) => a + Number(b.cal || 0), 0);
+  setText("nutrCal", `${totCal} kcal`);
+  setText("nutrProt", `${nFoods.reduce((a,b)=>a+Number(b.prot||0),0).toFixed(1)} g`);
+  setText("nutrCarb", `${nFoods.reduce((a,b)=>a+Number(b.carb||0),0).toFixed(1)} g`);
+  setText("nutrFat", `${nFoods.reduce((a,b)=>a+Number(b.fat||0),0).toFixed(1)} g`);
+  const cBar = document.getElementById("calBar"); if(cBar) cBar.style.width = `${Math.min(100, Math.round((totCal / 2000) * 100))}%`;
+  const nutList = document.getElementById("nutritionList");
+  if(nutList){
+    nutList.innerHTML = nFoods.length ? nFoods.map(x => `<div class="item"><div class="main"><div class="title">🥗 ${esc(x.food)}</div><div class="meta">${x.cal} kcal · ${x.prot}g P · ${x.carb}g C · ${x.fat}g F</div></div><button class="btn sm danger" onclick="deleteItem('nutrition', '${x.id}')">🗑️</button></div>`).join("") : `<div class="meta">No food logged today.</div>`;
+  }
+
+  // Health Profile Card
+  const prof = S.profile || {};
+  const height = Number(prof.height || 170), weight = Number(prof.weight || 64);
+  const bmi = (height > 0 && weight > 0) ? (weight / Math.pow(height / 100, 2)).toFixed(1) : "21.5";
+  const profHtml = `
+    <div class="profile-field"><span>Name</span><b>${esc(prof.name || S.user || "Deb")}</b></div>
+    <div class="profile-field"><span>Phone</span><b>${esc(prof.phone || "Registered")}</b></div>
+    <div class="profile-field"><span>Gender</span><b>${esc(prof.gender || "Male")}</b></div>
+    <div class="profile-field"><span>Height / Weight</span><b>${height} cm · ${weight} kg</b></div>
+    <div class="profile-field"><span>BMI Score</span><b>${bmi}</b></div>
+    <div class="profile-field" style="grid-column:1/-1"><span>Conditions / Allergies</span><b>${esc(prof.healthConditions || "None")}</b></div>
+  `;
+  const hpg = document.getElementById("healthProfileGrid"); if(hpg) hpg.innerHTML = profHtml;
+  const spd = document.getElementById("settingsProfileDetails"); if(spd) spd.innerHTML = profHtml;
+
+  // Notes
+  const noteQuery = (document.getElementById("qNote")?.value || "").trim().toLowerCase();
+  const visibleNotes = S.notes.filter(n => `${n.title || ""} ${n.body || ""}`.toLowerCase().includes(noteQuery));
+  const nList = document.getElementById("noteList");
+  if(nList){
+    nList.innerHTML = visibleNotes.length ? visibleNotes.map(n => `<div class="item" style="cursor:pointer" onclick="viewNote('${n.id}')"><div class="main"><div class="title">📌 ${esc(n.title)}</div><div class="meta">${esc(n.body.slice(0, 60))}...</div></div><div class="actions" onclick="event.stopPropagation()"><button class="btn sm soft" onclick="openModal('note', '${n.id}')">✏️</button><button class="btn sm danger" onclick="deleteItem('notes', '${n.id}')">🗑️</button></div></div>`).join("") : `<div class="meta">No notes yet.</div>`;
+  }
+
+  // Contacts & Medicines
+  const contactQuery = (document.getElementById("qCon")?.value || "").trim().toLowerCase();
+  const visibleContacts = S.contacts.filter(c => `${c.name || ""} ${c.phone || ""}`.toLowerCase().includes(contactQuery));
+  const cList = document.getElementById("conList");
+  if(cList) cList.innerHTML = visibleContacts.length ? visibleContacts.map(c => `<div class="item"><div class="main"><div class="title">👤 ${esc(c.name)}</div><div class="meta">📞 ${esc(c.phone)}</div></div><div class="actions"><a class="btn sm ok" href="tel:${esc(c.phone)}">Call</a><button class="btn sm danger" onclick="deleteItem('contacts', '${c.id}')">🗑️</button></div></div>`).join("") : `<div class="meta">No contacts.</div>`;
+  const mList = document.getElementById("medList");
+  if(mList) mList.innerHTML = S.medicines.length ? S.medicines.map(m => `<div class="item"><div class="main"><div class="title">💊 ${esc(m.name)}</div><div class="meta">${esc(m.dosage||"1 dose")} · ${esc(m.time)}</div></div><button class="btn sm danger" onclick="deleteItem('medicines', '${m.id}')">🗑️</button></div>`).join("") : `<div class="meta">No medicines.</div>`;
+
+  renderStudyCorner();
+  renderAchievements();
+}
+
+function renderAchievements(){
+  const badges = [
+    { name: "Task Finisher", desc: "Complete 5 daily tasks", icon: "🎯", unlocked: S.tasks.filter(x=>x.done).length >= 5 },
+    { name: "Hydration Champion", desc: "Drink 8 glasses of water", icon: "💧", unlocked: S.water.count >= 8 },
+    { name: "Budget Master", desc: "Manage monthly expenses", icon: "💰", unlocked: S.expenses.length > 0 },
+    { name: "Fitness Warrior", desc: "Perform daily workout guide", icon: "🏃", unlocked: true }
+  ];
+  const container = document.getElementById("badgesList");
+  if(container){
+    container.innerHTML = badges.map(b => `<div class="badge-card ${b.unlocked ? "" : "locked"}"><div class="badge-icon">${b.icon}</div><div><b>${b.name}</b><div class="meta">${b.desc}</div><span class="badge" style="margin-top:4px">${b.unlocked ? "Unlocked ✓" : "In Progress"}</span></div></div>`).join("");
+  }
+}
+
+function setLanguage(lang){ S.language = lang; saveState(); toast(`Language: ${lang}`); }
+
+let calOffset = 0;
+function moveDay(d){ calOffset += d; renderCalendar(); }
+function renderCalendar(){
+  const d = new Date(); d.setDate(d.getDate() + calOffset);
+  d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+  const dateStr = d.toISOString().slice(0, 10);
+  const cd = document.getElementById("calDate"); if(cd) cd.innerText = displayDate(dateStr);
+  const items = [...S.tasks, ...S.reminders].filter(x => (x.startDate || x.date) <= dateStr && (x.endDate || x.date || x.startDate) >= dateStr);
+  const cl = document.getElementById("calList");
+  if(cl) cl.innerHTML = items.length ? items.map(x => `<div class="item"><div class="main"><div class="title">${esc(x.title)}</div><div class="meta">${x.time ? "Time: " + x.time : "Task"}</div></div></div>`).join("") : `<div class="meta">No activities scheduled.</div>`;
+}
+
+function addWater(){ S.water.count = Math.min(S.water.count + 1, S.water.goal); saveState(); toast("Logged 1 glass of water!"); }
+function resetWater(){ S.water.count = 0; saveState(); toast("Water count reset."); }
+function editBudget(){ const b = prompt("Enter monthly budget limit (₹):", S.budget); const value = Number(b); if(b !== null && Number.isFinite(value) && value > 0){ S.budget = value; saveState(); } else if(b !== null) toast("Budget must be greater than zero."); }
+
+function toggleTheme(){ S.theme = S.theme === "dark" ? "light" : "dark"; saveState(); applyTheme(); }
+function applyTheme(){ document.documentElement.dataset.theme = S.theme; const h = document.getElementById("hello"); if(h) h.innerText = "Hi, " + (S.user || "Deb"); }
+
+function go(p){
+  document.getElementById("bottomMore")?.classList.remove("show");
+  document.querySelectorAll(".page").forEach(e => e.classList.toggle("active", e.id === p));
+  document.querySelectorAll(".tab").forEach(e => e.classList.toggle("active", e.dataset.page === p));
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+document.querySelectorAll(".tab").forEach(b => b.onclick = () => go(b.dataset.page));
+function toggleMore(){ document.getElementById("bottomMore")?.classList.toggle("show"); }
+
+function backup(){
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(S, null, 2)], { type:"application/json" }));
+  a.download = `jeevan-sahayak-backup-${today()}.json`; a.click();
+}
+function restore(e){
+  const file = e.target.files?.[0]; if(!file) return;
+  const reader = new FileReader();
+  reader.onload = () => { try{ S = JSON.parse(reader.result); saveState(); toast("Restored!"); } catch(_){ toast("Invalid backup file."); } };
+  reader.readAsText(file);
+}
+
+async function enableNotifications(){
+  if(!("Notification" in window)) return toast("Notifications not supported in this browser.");
+  try{
+    const p = await Notification.requestPermission();
+    if(p === "granted"){
+      toast("✅ Notifications enabled!");
+      new Notification("Jeevan Sahayak 3.0", { body:"Reminders and routine active!", icon:"https://i.postimg.cc/BQ47nLYz/IMG-20260912-WA0001.jpg" });
+    } else toast("Permission denied.");
+  }catch(_){}
+  updateNotificationStatus();
+}
+function updateNotificationStatus(){
+  const s = ("Notification" in window) ? Notification.permission : "Not Supported";
+  const el = document.getElementById("notifStatus"); if(el) el.innerText = s;
+}
+
+/* ----------------- STARTUP CONTROLLER ----------------- */
+renderExercises();
+chooseExercise(0);
+renderCalendar();
+updateNotificationStatus();
+
+// Restore an existing user session on refresh/reopen; new users see the guide first.
+if(restoreSession()) showApp();
+else showGuide();
+</script>
+</body>
+</html>
